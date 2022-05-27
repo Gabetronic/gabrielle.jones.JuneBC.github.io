@@ -15,10 +15,16 @@
 
 ### How to Push Work to Github ###
     1) In terminal, type => git add -A
-    2) type => git commit -m "(description of project update)"
+    2) type => git commit -m "project description in quotes"
     3) type => git push
 
-###
+### How to Use opspark tool to Test Projects ###
+    1) In terminal, type => os test
+    2) Select proper BC session & project
+
+### How to Use opspark tool to Submit Projects ###
+    1) In terminal, type => os submit
+    2) Select proper BC session & project
 
 
 
