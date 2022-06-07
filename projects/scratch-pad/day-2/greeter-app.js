@@ -36,9 +36,18 @@
 function greeter(hour) {
     // YOUR CODE BELOW HERE //
     
-    
-    
-    
+//Use conditional to test if input number parameter falls within a certain range of numbers
+//Print the appropriate greeting depending on the range that the input falls within
+if(hour >= 0 && hour < 12){
+    console.log("Good Morning!");
+}else if(hour >= 12 && hour < 17){
+    console.log("Good Afternoon!");
+}else if(hour >= 17 && hour < 22){
+    console.log("Good Evening!");
+}else{
+    console.log("Good Night!");
+}
+  
     // YOUR CODE ABOVE HERE //
 }
 
