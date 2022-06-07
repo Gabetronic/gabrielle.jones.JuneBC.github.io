@@ -194,10 +194,15 @@ if(stringOne.length > stringTwo.length){
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
-    //Create a conditional statement that takes the 2 input string parameters, compares which one is higher in alpha. order
+    //Create a conditional statement that takes the 2 input string parameters, compares which one is higher in alpha. order(closer to Zed)
     //If first input is higher, return "1". If second is higher, return "-1". If both are equal in alpha. order, return "0".
-    
-
+    if(stringOne === stringTwo){
+        return 0;
+    }else if(stringOne > stringTwo){
+        return -1;
+    }else{
+        return 1;
+    }
 
     // YOUR CODE ABOVE HERE //
 }
@@ -213,7 +218,14 @@ function sortAscending(stringOne, stringTwo) {
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
-
+    //Create a conditional that compares the input strings. If first string is lower in alpha. order(closer to Alpha), 
+    if(stringOne < stringTwo){
+        return -1; //return -1
+    }else if(stringOne > stringTwo){ //If first string is closer to Zed,
+        return 1; //return 1
+    }else{
+        return 0; //If strings are equal in alpha order, return 0.
+    }
 
 
     // YOUR CODE ABOVE HERE //
