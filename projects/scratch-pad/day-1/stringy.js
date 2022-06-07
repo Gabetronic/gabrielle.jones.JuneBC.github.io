@@ -25,8 +25,12 @@ return string.length;
  */
 function toLowerCase(string) {
     // YOUR CODE BELOW HERE //
-
-
+//Create a new string to push output into
+var newStr = "";
+//Take the input string parameter, and force it to lowercase
+newStr = string.toLowerCase();
+//Return new string output
+return newStr;
 
     // YOUR CODE ABOVE HERE //
 }
@@ -36,9 +40,11 @@ function toLowerCase(string) {
  */
 function toUpperCase(string) {
     // YOUR CODE BELOW HERE //
-
-
-
+//Create a new string for output(later) & assign it to input string. 
+var newStr2 = string.toUpperCase();
+//Input string should be attached to the toUpperCase method
+//return new string 
+return newStr2;
     // YOUR CODE ABOVE HERE //
 }
 
@@ -57,9 +63,12 @@ function toUpperCase(string) {
  */
 function toDashCase(string) {
     // YOUR CODE BELOW HERE //
-
-
-
+//Create a new string, assigned to input string parameter. 
+//Use split method on input string parameter
+//Use join method to insert a dash between each string in the array
+    let newStr3 = string.split(" ").join("-");
+//Return new string forced to lowercase
+    return newStr3.toLowerCase();
     // YOUR CODE ABOVE HERE //
 }
 
@@ -78,8 +87,14 @@ function toDashCase(string) {
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
 
-    
-
+//Determine if input string begins with input character.  Use conditional statement
+//Return "true" if it does, return "false" if it doesn't
+//Constraint: case sensitivity
+if(string[0].toLowerCase() === char.toLowerCase()){
+    return true;
+}else{
+    return false;
+}
     // YOUR CODE ABOVE HERE //
 }
 
@@ -98,7 +113,14 @@ function beginsWith(string, char) {
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
 
-
+//Determine if input string ends with input character.  Use conditional statement & string length property
+//Return "true" if it does, return "false" if it doesn't
+//Constraint: case sensitivity
+if(string[string.length - 1].toLowerCase() === char.toLowerCase()){
+    return true;
+}else{
+    return false;
+}
 
     // YOUR CODE ABOVE HERE //
 }
@@ -111,7 +133,10 @@ function endsWith(string, char) {
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
-
+//Create new string, assigned to string input parameters concatenated
+let newStr4 = stringOne + stringTwo;
+//return new string 
+return newStr4;
 
     // YOUR CODE ABOVE HERE //
 }
