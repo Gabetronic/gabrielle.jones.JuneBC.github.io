@@ -22,7 +22,17 @@
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
     
-    
+  //create a new string for output
+  let reversed = "";
+  //reverse iterate over the input string parameter & stop iterating at the first character 
+  for(var i = input.length - 1; i >= 0; i--){
+      //push each iteration to new string
+      reversed += input[i];
+
+    }
+  //return new string
+  return reversed;
+  
     
     
     // YOUR CODE GOES ABOVE HERE //
