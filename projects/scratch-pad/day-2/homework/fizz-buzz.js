@@ -15,16 +15,17 @@ function fizzBuzz() {
 
 //Print every number within the range of 1 to 100; use a for loop
     for(var i = 1; i < 101; i++){
-   //Make a conditional statement that says if a multiple of 3, print "Fizz" instead of number; use remainder operator 
+   //Make a conditional statement that says for any numbers that are multiples of both 3 & 5, print "FizzBuzz" instead of the number; use remainder operator 
         if(i % 3 === 0 && i % 5 === 0){
             console.log("FizzBuzz");
-//Conditional also says if a multiple of 5, print "Buzz", & for any numbers that multiples of both, print "FizzBuzz"
+//Conditional also says if a multiple of 5, print "Buzz", & 
         }else if(i % 5 === 0){
             console.log("Buzz");
+//If a multiple of 3, print "Fizz" 
         }else if(i % 3 === 0){
             console.log("Fizz");
         }else{
-            console.log(i);
+          console.log(i);
         }
     }
     // YOUR CODE GOES ABOVE HERE //
