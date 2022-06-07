@@ -153,8 +153,11 @@ return newStr4;
  */
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-    var args = Array.from(arguments);
 
+var args = Array.from(arguments);
+return args.join("");
+//Use join method on the args variable provided.
+//Return the args variable
 
     // YOUR CODE ABOVE HERE //
 }
@@ -171,8 +174,13 @@ function join(stringOne, stringTwo) {
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
-
-
+//Create a conditional statement that compares the length of the input string parameters
+//return the input string that has the longest length
+if(stringOne.length > stringTwo.length){
+    return stringOne;
+}else{
+    return stringTwo;
+}
     // YOUR CODE ABOVE HERE //
 }
 
@@ -186,6 +194,9 @@ function longest(stringOne, stringTwo) {
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
+    //Create a conditional statement that takes the 2 input string parameters, compares which one is higher in alpha. order
+    //If first input is higher, return "1". If second is higher, return "-1". If both are equal in alpha. order, return "0".
+    
 
 
     // YOUR CODE ABOVE HERE //
