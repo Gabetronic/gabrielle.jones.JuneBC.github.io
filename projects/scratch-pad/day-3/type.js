@@ -75,7 +75,7 @@ function isCollection(value) {
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
     
-    
+    //don't forget the instanceof operator
     
     
     // YOUR CODE ABOVE HERE //

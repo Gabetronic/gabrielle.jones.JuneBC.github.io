@@ -13,8 +13,14 @@
  */
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
-    
+/*I: base (= either a string or number)
+  O: a function that tests...
+*/
+
+    return function(value){
+        //determine if value input is greater than base - using a comparison operator returns a Boolean value, so
+        return value > base; 
+    }
     
     
     // YOUR CODE ABOVE HERE //
