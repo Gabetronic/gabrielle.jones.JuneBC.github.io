@@ -13,10 +13,14 @@
  */
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
+
 /*I: base (= either a string or number)
   O: a function that tests...
+  C: n/a
+  E: n/a
 */
 
+//Return a function with one input parameter named value
     return function(value){
         //determine if value input is greater than base - using a comparison operator returns a Boolean value, so
         return value > base; 
@@ -33,7 +37,12 @@ function createGreaterThanFilter(base) {
  */
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
+
+//Return a function with an input parameter named value
+    return function(value){
+        //function tests if value < base.  Doesn't say more = Boolean value can be returned
+        return value < base;
+    }
     
     
     
@@ -47,7 +56,16 @@ function createLessThanFilter(base) {
  */
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
-    
+
+//Return a function with one input string parameter
+    return function(string){
+//Test if the string's first character matches the startsWith parameter
+        if(string[0].toLowerCase() !== startsWith.toLowerCase()){
+            return false;
+        }
+//If the conditional isn't false, the opposite value (true) can be returned outside the conditional because it's the only other option
+        return true;
+    }
     
     
     
@@ -61,7 +79,16 @@ function createStartsWithFilter(startsWith) {
  */
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
-    
+  
+//Return a function with an input string parameter
+    return function(string){
+//If string's last character matches endsWith parameter, return true
+        if(string[string.length - 1].toUpperCase() === endsWith.toUpperCase()){
+            return true;
+        }
+//return false otherwise
+        return false;
+    }
     
     
     
