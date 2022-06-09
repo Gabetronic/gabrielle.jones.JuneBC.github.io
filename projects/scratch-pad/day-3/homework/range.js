@@ -23,8 +23,30 @@
  */
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
-    
-    
+
+/*
+I: 2 integers
+O: an array that begins with the first integer parameter & ends with the second one
+C: If second input parameter is greater, return new array in reverse order
+E: n/a
+*/    
+
+//Create a new output array
+    let output = [];
+//Determine which integer is greater than the other,
+    if(start < end){
+//Iterate in reverse through the range of integers between the 2 parameters, & push the range to the output array
+        for(var i = end; i >= start; i--){
+           output.push(end[i]); 
+        }
+    }else{
+//Iterate in order, & push the range to the output array
+        for(var i = start; i < end; i++){
+            output.push(start[i]);
+        }
+    }
+//Return output array
+    return output;  
     
     
     // YOUR CODE GOES ABOVE HERE //
