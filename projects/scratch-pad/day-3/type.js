@@ -14,7 +14,15 @@
  */
 function isArray(value) {
     // YOUR CODE BELOW HERE //
-    
+
+//Test value parameter to see if it's an array - use array.isArray() method 
+    if(Array.isArray(value) === true){
+//Return true if value is an array
+        return true;
+//Return false otherwise
+    }else{
+        return false;
+    }
     
     
     
@@ -31,7 +39,16 @@ function isArray(value) {
  */
 function isObject(value) {
     // YOUR CODE BELOW HERE //
-    
+
+/*Test value parameter to see if it's a collection object - use .constructor property to see if OG constructor function is an object,
+  typeof and AND operators */
+if(value && typeof value === 'object' && value.constructor === Object){
+//Return true if value is an object
+    return true;
+//Return false otherwise
+}else{
+    return false;
+}
     
     
     
@@ -46,7 +63,15 @@ function isObject(value) {
  */
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
-    
+
+
+    if(Array.isArray(value) === true){ 
+//Return true if value is an array
+        return true;
+//Return false otherwise
+    }else if(value && typeof value === 'object' && value.constructor === Object){
+        return false;
+    }
     
     
     
