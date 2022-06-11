@@ -35,6 +35,8 @@
  
 // YOUR CODE GOES BELOW HERE //
 let contact = {};
+let fullName = "";
+var contacts = []; //Assume contacts is an array from looking at .json file
 
 function makeContact(id, nameFirst, nameLast) {
 //This factory f(x) returns a contact, as an object with 2 key/value pairs
@@ -57,7 +59,7 @@ function makeContactList() {
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts = []; //Assume contacts is an array from looking at .json file
+    
     
     return {
         // we implemented the length api for you //
@@ -76,7 +78,7 @@ function makeContactList() {
             for(var i = 0; i < contacts.length; i++){
 //If contact exists in contacts array, return the contact object
                 if(contacts[i].nameFirst === array[0] && contacts[i].nameLast === array[1]){
-                    return contact[i];
+                    return contacts[i];
 //else, return undefined if the fullName does not match any contacts in the list   
                 }else{
                     return undefined;
@@ -84,6 +86,7 @@ function makeContactList() {
             }
         },
 //Create a 4th key/value pair. The pair should work as a function to
+
 //Create a 5th key/value pair. The pair should work as a function to
         
     }
