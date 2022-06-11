@@ -32,26 +32,63 @@
  *          WARNING: To pass this test, the LAST full name should have NO
  *          new-line character added after it!
  */
-
+ 
 // YOUR CODE GOES BELOW HERE //
+let contact = {};
+
 function makeContact(id, nameFirst, nameLast) {
+//This factory f(x) returns a contact, as an object with 2 key/value pairs
+
+//Create an output object literal to return later
+
+//Assign the input parameters to key/value pairs inside the object - use dot notation & the assignment operator
+contact.id = id;
+contact.nameFirst = nameFirst;
+contact.nameLast = nameLast;
+//Return object
+return contact;
 
 } 
 
 
 function makeContactList() {
+//This factory f(x) returns an object with methods attached; it has 5 key/value pairs
+
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts;
+    var contacts = []; //Assume contacts is an array from looking at .json file
     
     return {
         // we implemented the length api for you //
         length: function() {
             return contacts.length;
-        }
+        },
+//Create a 2nd key/value pair.  The pair should work as a function to add a contact object to the contacts array.
+        addContact: function(contact){
+            contacts.push(contact);
+        },
+//Create a 3rd key/value pair. The pair should work as a function to,    
+        findContact: function(fullName){
+//Since fullName is not a key in the contact object, split it into the keys available (nameFirst & nameLast) - create an array
+        var array = fullName.split(" ");
+//Iterate through contacts array,
+            for(var i = 0; i < contacts.length; i++){
+//If contact exists in contacts array, return the contact object
+                if(contacts[i].nameFirst === array[0] && contacts[i].nameLast === array[1]){
+                    return contact[i];
+//else, return undefined if the fullName does not match any contacts in the list   
+                }else{
+                    return undefined;
+                }
+            }
+        },
+//Create a 4th key/value pair. The pair should work as a function to
+//Create a 5th key/value pair. The pair should work as a function to
+        
     }
 }
+
 
 
 
