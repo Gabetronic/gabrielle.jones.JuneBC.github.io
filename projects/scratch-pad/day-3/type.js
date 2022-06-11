@@ -65,11 +65,11 @@ function isCollection(value) {
     // YOUR CODE BELOW HERE //
 
 
-    if(Array.isArray(value) === true){ 
+    if(Array.isArray(value) === true || value && typeof value === 'object' && value.constructor === Object){ 
 //Return true if value is an array
         return true;
 //Return false otherwise
-    }else if(value && typeof value === 'object' && value.constructor === Object){
+    }else{
         return false;
     }
     
@@ -87,7 +87,7 @@ function isCollection(value) {
  *    - "object"
  *    - "undefined"
  *    - "number"
- *    - "boolean"
+ *    - "boolean" 
  *    - "null"
  *    - "function"
  *    - "date"
@@ -97,11 +97,26 @@ function isCollection(value) {
  *    typeOf("javascript") -> "string"
  *    typeOf([1,2,3]) -> "array"
  */ 
-function typeOf(value) {
+function typeOf(value) {         //don't forget the instanceof operator
     // YOUR CODE BELOW HERE //
     
-    //don't forget the instanceof operator
-    
+//Test input parameter - use conditional chain - for data type
+    if(value && typeof value === 'object' && value.constructor === Object){
+        return "object";
+    }else if(typeof value === "number"){
+        return "number";
+    }else if(typeof value === "undefined"){
+        return "undefined";
+    }else if(typeof value === "string"){
+        return "string";
+    }else if(typeof value === "boolean"){
+        return "boolean";
+    }else if(Array.isArray(value) === true){
+        return "array";
+    }else if(typeof value === "function"){
+        return "function";
+    }
+//Return data type as a string
     
     // YOUR CODE ABOVE HERE //
 }
