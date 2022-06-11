@@ -101,6 +101,8 @@ function typeOf(value) {         //don't forget the instanceof operator
     // YOUR CODE BELOW HERE //
     
 //Test input parameter - use conditional chain - for data type
+//Return data type as a string
+
     if(value && typeof value === 'object' && value.constructor === Object){
         return "object";
     }else if(typeof value === "number"){
@@ -115,8 +117,12 @@ function typeOf(value) {         //don't forget the instanceof operator
         return "array";
     }else if(typeof value === "function"){
         return "function";
+    }else if(value === null){
+        return "null";
+    }else if(value instanceof Date){
+        return "date";
     }
-//Return data type as a string
+
     
     // YOUR CODE ABOVE HERE //
 }

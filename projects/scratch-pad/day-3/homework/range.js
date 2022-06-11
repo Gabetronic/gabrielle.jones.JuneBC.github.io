@@ -34,15 +34,15 @@ E: n/a
 //Create a new output array
     let output = [];
 //Determine which integer is greater than the other,
-    if(start < end){
+    if(start > end){
 //Iterate in reverse through the range of integers between the 2 parameters, & push the range to the output array
-        for(var i = end; i >= start; i--){
-           output.push(end[i]); 
+        for(var i = start; i >= end; i--){
+           output.push(i); 
         }
-    }else{
+    }else if(start < end){
 //Iterate in order, & push the range to the output array
-        for(var i = start; i < end; i++){
-            output.push(start[i]);
+        for(var i = start; i <= end; i++){
+            output.push(i);
         }
     }
 //Return output array
