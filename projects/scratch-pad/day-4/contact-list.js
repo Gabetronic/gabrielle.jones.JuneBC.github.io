@@ -85,10 +85,31 @@ function makeContactList() {
                 }
             }
         },
-//Create a 4th key/value pair. The pair should work as a function to
-
-//Create a 5th key/value pair. The pair should work as a function to
-        
+//Create a 4th key/value pair. The pair should work as a function to remove the input parameter from the contacts array
+        removeContact: function(contact){
+//Remove an item from the contacts array - use splice method
+            contacts.splice(contact, 1);
+        }, 
+//Create a 5th key/value pair. The pair should work as a function to return a string of every full name of every contact,
+ // seperated by a new line break, with no spaces before or after the names
+        printAllContactNames: function(){
+//Create a string literal
+        let output = "";
+//Iterate through the array
+            for(var i = 0; i < contacts.length; i++){
+//Pull out the values of the nameFirst & nameLasts keys,
+ //& put them into a new string with a space between each first & last name,
+  // & a new line special character between each full name
+   //the last full name entry shouldn't have a \n - use conditional chain
+                if(i === contacts.length - 1){   
+                    output += contacts[i].nameFirst + " " + contacts[i].nameLast;
+                }else{
+                    output += contacts[i].nameFirst + " " + contacts[i].nameLast + "\n";
+                }
+            }
+//Return the string output 
+        return output;
+        }
     }
 }
 
