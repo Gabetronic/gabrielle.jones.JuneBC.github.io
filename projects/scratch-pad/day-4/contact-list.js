@@ -34,15 +34,12 @@
  */
  
 // YOUR CODE GOES BELOW HERE //
-let contact = {};
-let fullName = "";
-var contacts = []; //Assume contacts is an array from looking at .json file
+
 
 function makeContact(id, nameFirst, nameLast) {
 //This factory f(x) returns a contact, as an object with 2 key/value pairs
-
 //Create an output object literal to return later
-
+var contact = {};
 //Assign the input parameters to key/value pairs inside the object - use dot notation & the assignment operator
 contact.id = id;
 contact.nameFirst = nameFirst;
@@ -59,7 +56,7 @@ function makeContactList() {
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    
+    let contacts = []; //Assume contacts is an array from looking at .json file
     
     return {
         // we implemented the length api for you //
@@ -72,6 +69,7 @@ function makeContactList() {
         },
 //Create a 3rd key/value pair. The pair should work as a function to,    
         findContact: function(fullName){
+        
 //Since fullName is not a key in the contact object, split it into the keys available (nameFirst & nameLast) - create an array
         var array = fullName.split(" ");
 //Iterate through contacts array,
