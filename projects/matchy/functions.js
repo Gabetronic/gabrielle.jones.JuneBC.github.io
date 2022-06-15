@@ -49,7 +49,7 @@ function remove(array, string){
 //If the indexed value matches the string input,
         if(string.toUpperCase() === array[i].name.toUpperCase()){
 //Splice to remove the array value  
-            return array.splice(array[i], 1);
+            array.splice(array[i], 1);
         }
     }
 }
@@ -75,12 +75,7 @@ function add(array, object){
             }
         }
     }
-
-
-
 }
-
-
 
 
 /**
