@@ -89,7 +89,7 @@ var randomName = randomFriend.name;
 friends.push(randomName);
 console.log(friends);
 spider["friends"] = friends;
-console.log(friends);
+console.log(spider);
 
 /**
  * Nice work! You're done Part 1. Pat yourself on the back and
