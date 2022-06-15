@@ -81,15 +81,15 @@ console.log(animals.length);
 var friends = [];
 function getRandom(array){
   //return random index of the input array
-  return Math.floor(Math.random() * array.length);
+  return array[Math.floor(Math.random() * array.length)];
 }
 var randomFriend = getRandom(animals);
 
-var random = randomFriend["name"];
-friends.push(random);
+var randomName = randomFriend.name;
+friends.push(randomName);
 console.log(friends);
 spider["friends"] = friends;
-console.log(animals);
+console.log(friends);
 
 /**
  * Nice work! You're done Part 1. Pat yourself on the back and
