@@ -3,7 +3,17 @@
 //////////////////////////////////////////////////////////////////////
 
 function objectValues(object) {
+// Should take an object and return its values in an array
 
+//Create an output array literal
+let output = [];
+//Iterate through object,
+    for(var key in object){
+//Put object's values into output array
+        output.push(object[key]);
+    }
+//Return output array
+return output;
 } 
 
 //////////////////////////////////////////////////////////////////////
@@ -19,8 +29,23 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
-    
-}
+//Should take an object and return all its string values in a string each separated with a space
+
+//Create an output string literal
+var output = "";
+
+//Iterate through object,
+    for(var key in object){
+//If object's value is a string,
+if(typeof object[key] === "string" && object[key].length !== 0){
+//Put object's values into output string
+            output += object[key] + " ";
+        }
+    }
+//Return output string
+return output.trim();
+} 
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 4 - Array or Object //////////////////////////////////////
