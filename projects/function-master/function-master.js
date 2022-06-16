@@ -66,7 +66,7 @@ function capitalizeWord(string) {
 var stringNew = "";
 //Add to output string a capitalized first value - use toUpperCase(),
  //Also add the rest of the input string's values - use slice method
-stringNew += string[0].toUpperCase() +  string.slice(1, string.length);
+stringNew += string[0].toUpperCase() +  string.slice(1);
 //Return output string
 return stringNew;
 }
@@ -84,7 +84,17 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
+//Should take an object with a name property and return 'Welcome <Name>!
 
+//Iterate through object 
+    for(var key in object){
+//Check if object has a key of "name", 
+        if(key === "name"){
+//Return object's name prop(the value), along with rest of return statement string 
+            return "Welcome" + " " + object[key].charAt(0).toUpperCase() +  object[key].slice(1) + "!";
+        }
+    }
+   //return output;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -100,9 +110,20 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-
+//Should take an object, if this object has a noises array return them as a string separated by a space, 
+  //if there are no noises return 'there are no noises'"
+    
+//Iterate through object
+    for(var key in object){
+/*Check if object has a key of "noises", & that the noises array has values inside of itself - use length property*/
+        if(key === "noises" && object[key].length > 0){
+//Return noises array as a string seperated by a space
+          return object[key].join(" ");
+        }
+    }
+//Else, return the rovided string statement
+return 'there are no noises';
 }
-
 //////////////////////////////////////////////////////////////////////
 // Function 10 - Has Words ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -116,6 +137,11 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
+//Should take a name and an object and add the name to the object's friends array then return the object
+
+//Add the name input to the object's friends array
+object.friends.push(name);
+return object;
 
 }
 
@@ -132,7 +158,20 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
+//Should take a name and a list of people, and return a list of all the names that <name> is not friends with
 
+//Create an output array literal
+var output = [];
+//Iterate over the array
+    for(var i = 0; i < array.length; i++){
+//If the array's name value !== the input name, &
+  //the array's friends value doesn't have the input name in it, 
+    //place the array's name value in the output array
+        if(array[i].name !== name && array[i].friends.includes(name) === false){
+            output.push(array[i].name);
+        }
+    }
+return output;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -148,6 +187,7 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
+//Should take an object and an array of strings. Should remove any properties on <object> that are listed in <array>
 
 }
 
