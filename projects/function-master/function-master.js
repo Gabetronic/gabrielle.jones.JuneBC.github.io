@@ -7,7 +7,7 @@ function objectValues(object) {
 
 //Create an output array literal
 let output = [];
-//Iterate through object,
+//Iterate through input object,
     for(var key in object){
 //Put object's values into output array
         output.push(object[key]);
@@ -34,7 +34,7 @@ function valuesToString(object) {
 //Create an output string literal
 var output = "";
 
-//Iterate through object,
+//Iterate through input object,
     for(var key in object){
 //If object's value is a string,
 if(typeof object[key] === "string" && object[key].length > 0){
@@ -86,7 +86,7 @@ function capitalizeAllWords(string) {
 function welcomeMessage(object) {
 //Should take an object with a name property and return 'Welcome <Name>!
 
-//Iterate through object 
+//Iterate through input object 
     for(var key in object){
 //Check if object has a key of "name", 
         if(key === "name"){
@@ -113,7 +113,7 @@ function maybeNoises(object) {
 //Should take an object, if this object has a noises array return them as a string separated by a space, 
   //if there are no noises return 'there are no noises'"
     
-//Iterate through object
+//Iterate through input object
     for(var key in object){
 /*Check if object has a key of "noises", & that the noises array has values inside of itself - use length property*/
         if(key === "noises" && object[key].length > 0){
@@ -121,7 +121,7 @@ function maybeNoises(object) {
           return object[key].join(" ");
         }
     }
-//Else, return the rovided string statement
+//Else, return the provided string statement
 return 'there are no noises';
 }
 //////////////////////////////////////////////////////////////////////
@@ -139,7 +139,7 @@ function hasWord(string, word) {
 function addFriend (name, object) {
 //Should take a name and an object and add the name to the object's friends array then return the object
 
-//Add the name input to the object's friends array
+//Add the name input to the input object's friends array
 object.friends.push(name);
 return object;
 
@@ -162,7 +162,7 @@ function nonFriends(name, array) {
 
 //Create an output array literal
 var output = [];
-//Iterate over the array
+//Iterate over the input array
     for(var i = 0; i < array.length; i++){
 //If the array's name value !== the input name, &
   //the array's friends value doesn't have the input name in it, 
@@ -188,7 +188,19 @@ function updateObject(object, key, value) {
 
 function removeProperties(object, array) {
 //Should take an object and an array of strings. Should remove any properties on <object> that are listed in <array>
-
+    
+//Iterate through input object      
+    for(var key in object){
+//Iterate through input array
+        for(var i = 0; i < array.length; i++){
+//If any of the object's keys match the input array's values,
+            if(array[i] === key){
+//Remove that key/value pair from the input object
+            delete object[key];
+            }
+        }
+    }
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
