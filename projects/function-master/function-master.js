@@ -37,8 +37,8 @@ var output = "";
 //Iterate through object,
     for(var key in object){
 //If object's value is a string,
-if(typeof object[key] === "string" && object[key].length !== 0){
-//Put object's values into output string
+if(typeof object[key] === "string" && object[key].length > 0){
+//Put object's values into output string with a space added
             output += object[key] + " ";
         }
     }
@@ -60,7 +60,15 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
-    
+//Should take a string of one word, and return the word with its first letter capitalized    
+
+//Create an output string
+var stringNew = "";
+//Add to output string a capitalized first value - use toUpperCase(),
+ //Also add the rest of the input string's values - use slice method
+stringNew += string[0].toUpperCase() +  string.slice(1, string.length);
+//Return output string
+return stringNew;
 }
 
 //////////////////////////////////////////////////////////////////////
