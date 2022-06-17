@@ -115,7 +115,7 @@ function welcomeMessage(object) {
 //Check if object has a key of "name", 
         if(key === "name"){
 //Return object's name prop(the value), along with rest of return statement string 
-            return "Welcome" + " " + object[key].charAt(0).toUpperCase() +  object[key].slice(1) + "!";
+            return "Welcome" + " " + object[key].charAt(0).toUpperCase() + object[key].slice(1) + "!";
         }
     }
 //return output;
@@ -126,7 +126,15 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
+//Should take an object with a name and a species and return '<Name> is a <Species>'
 
+//Create an output string literal
+let string = "";
+//Add object properties to empty string along with rest of the string components listed in instructions 
+  //- use concatenation & assignment operator & use toUpperCase, charAt & splice methods
+  string += object.name.charAt(0).toUpperCase() + object.name.slice(1) + " is a " + object.species.charAt(0).toUpperCase() + object.species.slice(1);
+  //Return string
+  return string;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -152,8 +160,22 @@ return 'there are no noises';
 // Function 10 - Has Words ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function hasWord(string, word) {
+function hasWord(string, word){
+//Should take a string of words and a word, and return true if <word> is in <string of words>, 
+ //otherwise return false  -- example string = var data = "This is a super awesome string of words";
 
+//Split the string input parameter
+var string = string.split(" ");
+//Iterate over the new array
+for(var i = 0; i < string.length; i++){
+//Create a conditional to see if word input parameter matches an item in the string input 
+    if(string[i].toLowerCase() === word.toLowerCase() ){
+//Return true if word matches
+        return true;
+    }
+}
+//Otherwise, return false
+return false;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -174,6 +196,7 @@ return object;
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
+//Should take a name and an object and return true if <name> is a friend of <object> and false otherwise
 
 }
 
