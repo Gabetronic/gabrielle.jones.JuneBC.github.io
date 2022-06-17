@@ -85,20 +85,22 @@ return stringNew;
 //////////////////////////////////////////////////////////////////////
 // Function 6 - Capitalize All Words /////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+
 function capitalizeAllWords(string) {
-    //Should take a string of words and return a string with all the words capitalized    
+//Should take a string of words and return a string with all the words capitalized    
     
-    //Split the string into an array
+//Split the string into an array
     var array = string.split(" ");
       let output = "";
-    //Iterate over the array,
+//Iterate over the array,
       for(var i = 0; i < array.length; i++){
-    //For each first letter, capitalize it,
-      //Add the new values to the output string 
+//For each first letter, capitalize it,
+//Add the new values to the output string 
         output += array[i][0].toUpperCase() + array[i].slice(1) + " ";
       }
+//Return output with trimmed whitespace
     return output.trim();
-    }
+}
     
 
 //////////////////////////////////////////////////////////////////////
@@ -116,7 +118,7 @@ function welcomeMessage(object) {
             return "Welcome" + " " + object[key].charAt(0).toUpperCase() +  object[key].slice(1) + "!";
         }
     }
-   //return output;
+//return output;
 }
 
 //////////////////////////////////////////////////////////////////////
