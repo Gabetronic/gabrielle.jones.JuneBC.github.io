@@ -21,6 +21,10 @@ return output;
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
+//Should take an object and return all its keys in a string each separated with a space
+
+//Used object.keys method + join method, with space inbetween 
+return Object.keys(object).join(" ");
 
 }
 
@@ -52,7 +56,14 @@ return output.trim();
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
-    
+//Should take one argument and return 'array' if its an array and 'object' if its an object"
+
+//Determine if input parameter is array or object
+ //return string value definition of parameter
+    if(Array.isArray(collection) === true){
+        return "array";
+    }
+return "object";
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -74,10 +85,21 @@ return stringNew;
 //////////////////////////////////////////////////////////////////////
 // Function 6 - Capitalize All Words /////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
 function capitalizeAllWords(string) {
+    //Should take a string of words and return a string with all the words capitalized    
     
-}
+    //Split the string into an array
+    var array = string.split(" ");
+      let output = "";
+    //Iterate over the array,
+      for(var i = 0; i < array.length; i++){
+    //For each first letter, capitalize it,
+      //Add the new values to the output string 
+        output += array[i][0].toUpperCase() + array[i].slice(1) + " ";
+      }
+    return output.trim();
+    }
+    
 
 //////////////////////////////////////////////////////////////////////
 // Function 7 - Welcome Message //////////////////////////////////////
