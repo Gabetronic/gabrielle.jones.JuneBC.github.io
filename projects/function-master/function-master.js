@@ -198,8 +198,17 @@ return object;
 function isFriend(name, object) {
 //Should take a name and an object and return true if <name> is a friend of <object> and false otherwise
 
+//Iterate through object input
+    for(var key in object){
+//Create a condition, if array iteration includes the name input parameter &
+  //array's length is > 0, return true
+        if(object[key].includes(name) === true && object[key].length > 0){
+            return true;
+        }
+    }
+//Else, return false
+      return false;
 }
-
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -226,7 +235,19 @@ return output;
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
+//Should take an object, a key and a value. Should update the property <key> on <object> with new <value>. 
+  //If <key> does not exist on <object> create it.
 
+
+//If key exists, update it's value -- use a conditional & use a combo of dot notation & assignment operator
+    if(object.key === key){
+        object.key = value;
+//If key doesn't exist, create one with the key/value input parameters given 
+    }else if(object.key === undefined){
+        object[key] = value;
+    }
+//Return object
+return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -255,6 +276,8 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
+//Should take an array and return an array with all the duplicates removed
+
 
 }
 
