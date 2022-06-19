@@ -278,7 +278,14 @@ function removeProperties(object, array) {
 function dedup(array) {
 //Should take an array and return an array with all the duplicates removed
 
-
+//Spread the contents of the array input into a new variable - use spread syntax
+ //Create a new version of the array input - use new operator, that 
+  //seperates the input array's values into a single set of unique values - use set object
+var singleSet = [...new Set(array)];
+//Reassign input array to new variable
+array = singleSet;
+//Return array
+return array;
 }
 
 //////////////////////////////////////////////////////////////////////
