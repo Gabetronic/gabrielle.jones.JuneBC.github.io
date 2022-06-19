@@ -46,7 +46,18 @@ function fizzBuzz() {
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function drawChessboard() {
+function drawChessboard(number) {
+//should draw a chessboard with as many rows as the input number parameter 
+ //Write a program that creates a string that represents an 8×8 grid, using newline characters to separate lines. 
+  //At each position of the grid there is either a space or a "#" character. 
+   //You’ll need two binding size variables to track your progress. To know whether to put a space or a hash sign  
+   //at a given position, you could test whether the sum of the two counters is even (% 2).
+    // Terminating a line by adding a newline character must happen after the line has been built up, 
+    //so do this after the inner loop but inside the outer loop.
+
+//Create a string literal output
+ let string = "";
+
 
 }
 
