@@ -25,18 +25,17 @@ function triangles(number) {
 function fizzBuzz() {
 //should print numbers 1 to 15 with fizz/buzz in appropriate places
 
-
-  //Print every number within the range of 1 to 100; use a for loop
-  for(var i = 1; i < 101; i++){
+//Print every number within the range of 1 to 15; use a for loop
+  for(var i = 1; i < 16; i++){
     //Make a conditional statement that says for any numbers that are multiples of both 3 & 5, print "FizzBuzz" instead of the number; use remainder operator 
          if(i % 3 === 0 && i % 5 === 0){
-             console.log("FizzBuzz");
+             console.log("fizzbuzz");
  //Conditional also says if a multiple of 5, print "Buzz", & 
          }else if(i % 5 === 0){
-             console.log("Buzz");
+             console.log("buzz");
  //If a multiple of 3, print "Fizz" 
          }else if(i % 3 === 0){
-             console.log("Fizz");
+             console.log("fizz");
          }else{
            console.log(i);
          }
