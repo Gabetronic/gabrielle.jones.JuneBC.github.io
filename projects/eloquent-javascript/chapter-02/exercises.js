@@ -8,15 +8,14 @@ function triangles(number) {
  //should log each level of triangle separately & should work for any input number
 
 //Create a string literal output
- let string = "";
+let string = "";
 //While the length of the string output is less than the input number parameter,
- while(string.length < number){
+  while(string.length < number){
 //Add a #, and reassign the string 
-   string += "#";
+    string += "#";
 //Print the reassignment  
-  console.log(string);
- }
-
+console.log(string);
+  }
 }
 ////////////////////////////////////////////////////////////////////////////////
 // fizzBuzz ////////////////////////////////////////////////////////////////////
@@ -56,9 +55,23 @@ function drawChessboard(number) {
     //so do this after the inner loop but inside the outer loop.
 
 //Create a string literal output
- let string = "";
+let string = "";
 
-
+//use 2 loops to create 1 position per row
+  for(i = 0; i < number; i++){
+    for(y = 0; y < number; y++){
+//Use a conditional to determine where a space needs to be added to the output string, vs. a number sign
+      if((i + y) % 2 === 0){
+        string += " ";
+      }else{
+        string += "#"; 
+      }
+    }
+//Outside of the inner loop, add a \n to the string output
+  string += "\n";
+  }
+//Print the string output
+console.log(string);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
