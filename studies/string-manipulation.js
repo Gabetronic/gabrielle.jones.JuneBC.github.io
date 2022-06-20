@@ -6,7 +6,7 @@
 * operator, or bracket notation.
 * 2. There are many string methods that can be used to manipulate strings: please visit 
 * https://www.w3schools.com/jsref/jsref_obj_string.asp for a full list. 
-* This assignment covers only three methods: .split(), .slice(), & .trim()
+* This assignment covers only three methods: .split(), .includes(), & .trim()
 */
 
 // 1. string immutability //
@@ -22,9 +22,19 @@ var similarString = string + " What are those!";
 console.log(string, similarString); //prints Hey dude! Hey dude! What are those!
 
 // 2. .split() method //
+// Split takes a string and splits it into a new array of substrings.  Optional changes that can be included in 
+// the array are seperators & a limit, or stopping index position.  Optional changes are communicated within
+// the parenthesis.
+console.log(similarString.split()); // prints [Hey dude! Hey dude! What are those!]
+console.log(similarString.split(" ", 2)); // prints [Hey, dude!] 
 
-
-// 3. .splice() method //
-
+// 3. .includes() method //
+// This returns a Boolean value of true if a string contains a specific, case sensitve string value.  It has 
+// an optional starting index position.
+console.log(string.includes("The"));  // prints false
 
 // 4. .trim() method //
+// Trim removes all whitespace from the start and end of string.
+var string2 = "        Hello?   ";
+var trimmed = string2.trim();
+console.log(trimmed); //prints Hello?
