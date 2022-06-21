@@ -11,6 +11,15 @@ var _ = {};
 * Implement each function below its instructions
 */
 
+/////////// UNDERPANTS/LODOWN PROJECT INSTRUCTIONS //////////
+// Step 1: create the function required, in Underpants.js
+// Step2: write the documentation in lodown
+  //To access lodown: In explorer column<Application Menu, click Open File, delete file up to workspace/, and click lodown
+//Grab your newly created function in Underpants, rewrite it as a func declaration, then write a describe of the func, the parameters & what it should return
+  //See .each example for guidance 
+  //To save changes in lodown: you must type " cd .." + " cd lodown" + regular git commands
+   //You must cd back to workspace, then back to your regular repository to save underpants work
+
 /** _.identity
 * Arguments:
 *   1) Any value
@@ -20,7 +29,9 @@ var _ = {};
 *   _.identity(5) === 5
 *   _.identity({a: "b"}) === {a: "b"}
 */
+_.identity = function(value){
 
+};
 
 /** _.typeOf
 * Arguments:
