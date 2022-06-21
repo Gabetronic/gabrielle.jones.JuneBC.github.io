@@ -164,10 +164,16 @@ return sliced;
 */
 
 _.indexOf = function(array, value){
-
 //Iterate through array input
-//Use a conditional chain to return the index of the 1st match of value input in array[i]
- //Return -1 if there's no match
+    for(var i = 0; i < array.length; i++){
+//Use conditional - if value input matches with an element in array[i] 
+  //Return the array's indexed position (remember i = index position)
+        if(array[i] === value){
+            return i;
+        }
+    }
+//Return -1 if there's no match   
+return -1;
 }
 
 /** _.contains
@@ -185,6 +191,14 @@ _.indexOf = function(array, value){
 *   _.contains([1,"two", 3.14], "two") -> true
 */
 
+_.contains = function(array, value){
+    //for(var i = 0; i < array.length; i++){
+return array.includes(value) ? true : false;  
+}
+
+//Iterate over array
+//If array contains the value parameter, return true
+//Else, return false
 
 /** _.each
 * Arguments:
