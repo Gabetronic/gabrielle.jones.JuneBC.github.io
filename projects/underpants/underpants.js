@@ -30,7 +30,7 @@ var _ = {};
 *   _.identity({a: "b"}) === {a: "b"}
 */
 _.identity = function(value){
-
+    return value;
 };
 
 /** _.typeOf
@@ -39,12 +39,12 @@ _.identity = function(value){
 * Objectives:
 *   1) Return the type of <value> as a string
 *       Types are one of:
-*          - "string"
-*          - "array"
-*          - "object"
-*          - "undefined"
-*          - "number"
-*          - "boolean"
+*          - "string" 
+*          - "array" 
+*          - "object" 
+*          - "undefined" 
+*          - "number" 
+*          - "boolean" 
 *          - "null"
 *          - "function"
 * Examples:
@@ -53,15 +53,34 @@ _.identity = function(value){
 * _.typeOf([1,2,3]) -> "array"
 */
 
+_.typeOf = function(value){
+    if(value && typeof value === 'object' && value.constructor === Object){
+        return "object";
+    }else if(typeof value === "number"){
+        return "number";
+    }else if(typeof value === "undefined"){
+        return "undefined";
+    }else if(typeof value === "string"){
+        return "string";
+    }else if(typeof value === "boolean"){
+        return "boolean";
+    }else if(Array.isArray(value) === true){
+        return "array";
+    }else if(typeof value === "function"){
+        return "function";
+    }else if(value === null){
+        return "null";
+    }
+}
 
 /** _.first
 * Arguments:
 *   1) An array
 *   2) A number
 * Objectives:
-*   1) If <array> is not an array, return []
-*   2) If <number> is not given or not a number, return just the first element in <array>.
-*   3) Otherwise, return the first <number> items of <array>
+**   1) If <array> is not an array, return []
+**   2) If <number> is not given or not a number, return just the first element in <array>.
+**   3) Otherwise, return the first <number> items of <array>
 * Edge Cases:
 *   1) What if <number> is negative?
 *   2) What if <number> is greater than <array>.length?
@@ -71,6 +90,27 @@ _.identity = function(value){
 *   _.first(["a", "b", "c"], 1) -> "a"
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
+
+_.first = function(array, number){
+
+//Create output array
+var sliced = [];
+//Iterate through array input
+    for(var i = 0; i < array.length; i++){
+//Create a conditional chain, 1st condition says if array input !== an array, return an array literal
+        if(Array.isArray(array) === false || number < 0){
+            return [];
+//2nd condition says if number input == NaN or not given, only return array[i][0]
+        }else if(isNaN(number) === true || number === undefined){
+            return array[i][0];
+//Else, slice the first <number> of items in the <array>
+        }else{
+            sliced = array.slice(0, number);
+        }   
+    }
+//return output array
+return sliced;
+}
 
 
 /** _.last
@@ -91,6 +131,25 @@ _.identity = function(value){
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 
+_.last = function(array, number){
+  //Create output array
+var sliced = [];
+//Iterate through array input
+    for(var i = array.length - 1; i >= 0; i--){
+//Create a conditional chain, 1st condition says if array input !== an array, return an array literal
+        if(Array.isArray(array) === false || number < 0){
+            return [];
+//2nd condition says if number input == NaN or not given, only return last element of array
+        }else if(isNaN(number) === true || number === undefined){
+            return array[array.length - 1];
+//Else, slice the last <number> of items in the <array>
+        }else{
+            sliced = array.slice(array.length -1, number);
+        }   
+    }
+//return output array
+return sliced;  
+}
 
 /** _.indexOf
 * Arguments:
