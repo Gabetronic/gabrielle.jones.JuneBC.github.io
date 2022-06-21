@@ -95,19 +95,18 @@ _.first = function(array, number){
 
 //Create output array
 var sliced = [];
-//Iterate through array input
-    for(var i = 0; i < array.length; i++){
+
 //Create a conditional chain, 1st condition says if array input !== an array, return an array literal
         if(Array.isArray(array) === false || number < 0){
             return [];
 //2nd condition says if number input == NaN or not given, only return array[i][0]
         }else if(isNaN(number) === true || number === undefined){
-            return array[i][0];
+            return array[0];
 //Else, slice the first <number> of items in the <array>
         }else{
             sliced = array.slice(0, number);
         }   
-    }
+    
 //return output array
 return sliced;
 }
@@ -134,19 +133,16 @@ return sliced;
 _.last = function(array, number){
   //Create output array
 var sliced = [];
-//Iterate through array input
-    for(var i = array.length - 1; i >= 0; i--){
 //Create a conditional chain, 1st condition says if array input !== an array, return an array literal
         if(Array.isArray(array) === false || number < 0){
             return [];
 //2nd condition says if number input == NaN or not given, only return last element of array
         }else if(isNaN(number) === true || number === undefined){
             return array[array.length - 1];
-//Else, slice the last <number> of items in the <array>
+//Else, slice the last <number> of items in the <array> -- put a negative in front of the number value
         }else{
-            sliced = array.slice(array.length -1, number);
+            sliced = array.slice(-number);
         }   
-    }
 //return output array
 return sliced;  
 }
@@ -167,6 +163,12 @@ return sliced;
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 
+_.indexOf = function(array, value){
+
+//Iterate through array input
+//Use a conditional chain to return the index of the 1st match of value input in array[i]
+ //Return -1 if there's no match
+}
 
 /** _.contains
 * Arguments:
