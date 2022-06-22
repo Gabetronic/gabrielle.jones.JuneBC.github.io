@@ -248,11 +248,12 @@ let result;
 //iterate through array
     for(var i = 0; i < array.length; i++){
 //use indexOf() to find indices without the same value
- //push those elements into output array, and return new array 
       if(output.indexOf(array[i]) === -1){
+//push those elements into output array, and 
         output.push(array[i]);
         }
     }
+//return new array
 return output;
 }
 
@@ -273,14 +274,21 @@ return output;
 */
 
 _.filter = function(array, test){
+//Create an output array literal 
 var newArr = [];
+//Create a result variable to hold the result of calling the test function
 var result;
+//Iterate through array
     for(var i = 0; i < array.length; i++){
+//Use the result variable
     result = test(array[i], i, array);
+//If the result of calling the test func === true,
       if(result === true){
+//Push array[i] into the output array
         newArr.push(array[i]);
       }
     }
+//return output array
 return newArr;
 }
 
@@ -297,6 +305,24 @@ return newArr;
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
 
+_.reject = function(array, test){
+//Create an output array literal 
+var newArr = [];
+//Create a result variable to hold the result of calling the test function
+var result;
+//Iterate through array
+    for(var i = 0; i < array.length; i++){
+//Use the result variable
+    result = test(array[i], i, array);
+//If the result of calling the test func === false,
+      if(result === false){
+//Push array[i] into the output array
+        newArr.push(array[i]);
+      }
+    }
+//return output array
+return newArr;
+}
 
 /** _.partition
 * Arguments:
