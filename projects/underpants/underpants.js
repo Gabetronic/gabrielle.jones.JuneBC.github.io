@@ -244,11 +244,14 @@ _.each = function(collection, callback){
 _.unique = function(array){
 //Create an output array literal
 let output = [];
+let result;
 //iterate through array
     for(var i = 0; i < array.length; i++){
-//use indexOf() to find indices with the same value
- //remove those elements from the array, and return a new array w/o duplicates
-        output = [...new Set(array)];
+//use indexOf() to find indices without the same value
+ //push those elements into output array, and return new array 
+      if(output.indexOf(array[i]) === -1){
+        output.push(array[i]);
+        }
     }
 return output;
 }
