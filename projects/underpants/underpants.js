@@ -3,6 +3,8 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
 
+//const { keyBy } = require("lodash");
+
 var _ = {};
 
 
@@ -192,13 +194,9 @@ return -1;
 */
 
 _.contains = function(array, value){
-    //for(var i = 0; i < array.length; i++){
+//If array contains the value parameter, return true.  Else, return false - must use ternary operator
 return array.includes(value) ? true : false;  
 }
-
-//Iterate over array
-//If array contains the value parameter, return true
-//Else, return false
 
 /** _.each
 * Arguments:
@@ -215,6 +213,22 @@ return array.includes(value) ? true : false;
 *   _.each(["a","b","c"], function(e,i,a){ console.log(e)});
 *      -> should log "a" "b" "c" to the console
 */
+_.each = function(collection, callback){
+//If collection parameter === array, 
+    if(Array.isArray(collection) === true){
+//Iterate through array, and
+        for(var i = 0; i < collection.length; i++){
+//call func parameter for each array element w/ provided args
+            callback(collection[i], i, collection);
+        }
+//else, iterate through collection object parameter, and 
+    }else{
+        for(var key in collection){
+//call func parameter for each object's property w/ provided args
+            callback(collection[key], key, collection);
+        }
+    }
+}
 
 
 /** _.unique
@@ -227,6 +241,19 @@ return array.includes(value) ? true : false;
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
 
+_.unique = function(array){
+//Create an output array literal
+let output = [];
+//iterate through array
+    for(var i = 0; i < array.length; i++){
+//use indexOf() to find indices with the same value
+ //remove those elements from the array, and return a new array w/o duplicates
+        if(array.indexOf(array, array[i]) === true){
+            output.push(array[i]);
+        }
+    }
+return output;
+}
 
 /** _.filter
 * Arguments:
