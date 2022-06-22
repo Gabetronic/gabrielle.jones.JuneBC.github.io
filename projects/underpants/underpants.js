@@ -248,9 +248,9 @@ let output = [];
     for(var i = 0; i < array.length; i++){
 //use indexOf() to find indices with the same value
  //remove those elements from the array, and return a new array w/o duplicates
-        if(array.indexOf(array, array[i]) === true){
-            output.push(array[i]);
-        }
+ if (array.indexOf(array[i]) === i);
+ output = [...new Set(array)];
+        
     }
 return output;
 }
