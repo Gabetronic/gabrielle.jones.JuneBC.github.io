@@ -248,9 +248,7 @@ let output = [];
     for(var i = 0; i < array.length; i++){
 //use indexOf() to find indices with the same value
  //remove those elements from the array, and return a new array w/o duplicates
- if (array.indexOf(array[i]) === i);
- output = [...new Set(array)];
-        
+        output = [...new Set(array)];
     }
 return output;
 }
@@ -271,6 +269,17 @@ return output;
 *   use _.each in your implementation
 */
 
+_.filter = function(array, test){
+var newArr = [];
+var result;
+    for(var i = 0; i < array.length; i++){
+    result = test(array[i], i, array);
+      if(result === true){
+        newArr.push(array[i]);
+      }
+    }
+return newArr;
+}
 
 /** _.reject
 * Arguments:
