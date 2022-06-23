@@ -3,22 +3,23 @@
 'use strict';
 
 var customers = require('./data/customers.json');
-var _ = require(/* Replace this with the name of your lodown! */);
+var _ = require('underbar');
 
 /**
  * 1. Import your lodown module using the require() method,
- *    using the string 'lodown-<my-username>', or whatever
+ *    using the string 'underbar', or whatever
  *    name with which you published your npm lodown project.
- *
- * 2. Solve all problems as outlined in the README.
+ * 
+ * 2. Solve all problems as outlined in the README; save your work in your regular repository!!!
  *
  * 3. We started the first one for you as an example! Make the rest in that style.
  *
- * 4. To test your work, run the following command in your terminal:
- *
- *    npm start --prefix ./<YOUR_GITHUB_FOLDER/projects/let-s-get-functional
- *
- *    IMPORTANT: Make sure you replace <YOUR_GITHUB_FOLDER with your actual github folder name that is in your workspace.
+ * 4. To test your work:
+ * 
+ *      A) cd into workspace (type cd .. in terminal until terminal reads /workspace)
+ *      B) Copy & paste the following code into the terminal:
+ *              npm start --prefix ./gabrielle.jones.JuneBC.github.io/projects/let-s-get-functional
+ *      C) DON'T FORGET TO save your work in your regular repository!!!
  */
 
 var maleCount = function(array) {
