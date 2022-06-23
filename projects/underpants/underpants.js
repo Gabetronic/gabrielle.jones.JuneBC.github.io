@@ -363,9 +363,6 @@ var result;
 //Push subarrays into output array, & return output arr
 output.push(subOne, subTwo);
 return output; 
-
-
-
 }
 
 /** _.map
@@ -384,6 +381,25 @@ return output;
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
+_.map = function(collection, func){
+//Create output array literal & result variable to hold result of calling the func
+let output = [];
+let result;
+//Create a conditional to route the collection to a for loop or a for in loop
+    if(Array.isArray(collection) === true){
+        for(var i = 0; i < collection.length; i++){
+//Call the function with the provided arguments
+            result = func(collection[i], i, collection);
+            output.push(result);
+        }
+    }else{
+        for(var key in collection){
+            result = func(collection[key], key, collection);
+            output.push(result);
+        }
+    }
+return output;
+}
 
 /** _.pluck
 * Arguments:
