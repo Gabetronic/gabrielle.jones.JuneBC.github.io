@@ -390,6 +390,7 @@ let result;
         for(var i = 0; i < collection.length; i++){
 //Call the function with the provided arguments
             result = func(collection[i], i, collection);
+//Save the result of the func call into output array, &
             output.push(result);
         }
     }else{
@@ -398,6 +399,7 @@ let result;
             output.push(result);
         }
     }
+//return output array
 return output;
 }
 
@@ -412,6 +414,22 @@ return output;
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
 
+_.pluck = function(array, prop){
+//Create an output array literal
+let output = [];
+let result;
+//iterate through array
+    for(var i = 0; i < array.length; i++){
+//use map() to find indices without the same value
+      result = array.map(array[i], i, array);
+      if(result === prop){
+//push those elements into output array, and 
+        output.push(result);
+      }    
+    }
+//return new array
+return output;
+}
 
 /** _.every
 * Arguments:
