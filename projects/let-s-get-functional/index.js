@@ -23,7 +23,11 @@ var _ = require('underbar');
  */
 
 var maleCount = function(array) {
-
+//Use filter method to return new array with only objects with a gendered prop of male
+    var males = _.filter(array, function(customer){
+        return customers.gender === "male";
+    }); 
+return males.length; //return "a number" of male customers
 };
 
 var femaleCount;
