@@ -342,7 +342,31 @@ return newArr;
 *   }); -> [[2,4],[1,3,5]]
 }
 */
+_.partition = function(array, func){
+//Create 1 output array & 2 subarray literals;
+var output = [];
+var subOne = [];
+var subTwo = [];
+//Create new variable for result of calling the func
+var result;
+//Iterate through array
+    for(var i = 0; i < array.length; i++){
+//For each iteration, call the func with the provided arguments
+        result = func(array[i], i, array);
+//Use if statement to route truthy vs falsy values into subarrays  
+        if(result === true){
+            subOne.push(array[i]);
+        }else{
+            subTwo.push(array[i]);
+        }
+    }
+//Push subarrays into output array, & return output arr
+output.push(subOne, subTwo);
+return output; 
 
+
+
+}
 
 /** _.map
 * Arguments:
@@ -436,6 +460,27 @@ return newArr;
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 
+_.reduce = function(array, func, seed){ // [1, 2, 3, 4]
+//Create output variable
+var output;
+//1st - determine if seed was not passed in
+    if(seed === undefined){ // because 0 is falsy, !seed doesn't work){
+        output = array[0]; //Think of output as the accumulator value
+        for(var i = 1; i < array.length; i++){ //output is already 0, so the loop doesn't have to start at 0
+            output = func(output, array[i]/*current*/, i, array); 
+            /*invoke act of reducing:
+                func(1)
+                */
+        }
+//else it was passed in
+    }else{ 
+        output = seed; //output = 0
+        for(var i = 0; i < array.length; i++){
+            output = func(output, array[i], i, array); 
+        }
+    }
+return output;
+}
 
 /** _.extend
 * Arguments:
