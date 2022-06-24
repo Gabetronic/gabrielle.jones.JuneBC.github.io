@@ -417,8 +417,6 @@ return output;
 
 
 _.pluck = function(array, prop){
-
-
 //Create result variable
 let result;
 //use map() to list the properties of each array element's prop            
