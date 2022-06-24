@@ -418,26 +418,18 @@ return output;
 
 _.pluck = function(array, prop){
 
-/*
+
 //Create result variable
 let result;
-//iterate through array
+//use map() to list the properties of each array element's prop            
+result = _.map(array, function(object){
+    return object[prop];
+});
+//return result 
+return result;
+}
 
-//use map() to list the properties of each array element's prop
-    result = _.map(array, func(array[i]){
-        if(array[i].key === prop){
-            return array[i].key;
-        }else{
-            return 1;
-        }
-                //returns the value at the target prop for each object in the array
-    });
-//push those props into output array, and 
-           
-        
-    
-//return new array
-*/
+
 
 
 
@@ -470,7 +462,8 @@ _.every = function(collection, func){
 //Create result variable
 let result;
 
-//Use conditional chain to iterate through the collection depending on if it's an arr or obj
+ /*
+ //Use conditional chain to iterate through the collection depending on if it's an arr or obj
     if(Array.isArray(collection) === true){
         for(var i = 0; i < collection.length; i++){
 //call func parameter for each array element w/ provided args
@@ -491,7 +484,7 @@ let result;
             }
         }
     }
-
+*/ 
 }
 
 /** _.some
