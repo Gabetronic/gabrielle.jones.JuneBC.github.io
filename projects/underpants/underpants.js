@@ -415,25 +415,30 @@ return output;
 */
 
 
-/*
+
 _.pluck = function(array, prop){
 
-//Create an output array literal
-let output = [];
+//Create result variable
 let result;
 //iterate through array
-    for(var i = 0; i < array.length; i++){
-            for(var key in object){
+
 //use map() to list the properties of each array element's prop
-            result = object.map(object[key], key, array);
-//push those props into output array, and 
-            output.push(result);
+    result = _.map(array, func(array[i]){
+        if(array[i].key === prop){
+            return array[i].key;
+        }else{
+            return 1;
         }
-    }
+                //returns the value at the target prop for each object in the array
+    });
+//push those props into output array, and 
+           
+        
+    
 //return new array
-return output;
-}
-*/
+
+
+
 
 
 
@@ -449,6 +454,7 @@ return output;
 *          current value, current key, <collection>
 *   2) If the return value of calling <function> for every element is true, return true
 *   3) If even one of them returns false, return false
+
 *   4) If <function> is not provided, return true if every element is truthy, otherwise return false
 * Edge Cases:
 *   1) what if <function> doesn't return a boolean
@@ -466,11 +472,21 @@ let result;
     if(Array.isArray(collection) === true){
         for(var i = 0; i < collection.length; i++){
 //call func parameter for each array element w/ provided args
-            callback(collection[i], i, collection);
+            result = func(collection[i], i, collection);
+            if(result === true){
+                return true;
+            }else{
+                return false;
+            }
         }
     }else{
         for(var key in collection){
-            callback(collection[key], key, collection);
+            result = func(collection[key], key, collection);
+            if(result === true){
+                return true;    
+            }else{
+                return false;
+            }
         }
     }
 
