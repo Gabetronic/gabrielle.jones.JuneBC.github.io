@@ -414,22 +414,28 @@ return output;
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
 
+
+/*
 _.pluck = function(array, prop){
+
 //Create an output array literal
 let output = [];
 let result;
 //iterate through array
     for(var i = 0; i < array.length; i++){
-//use map() to find indices without the same value
-      result = array.map(array[i], i, array);
-      if(result === prop){
-//push those elements into output array, and 
-        output.push(result);
-      }    
+            for(var key in object){
+//use map() to list the properties of each array element's prop
+            result = object.map(object[key], key, array);
+//push those props into output array, and 
+            output.push(result);
+        }
     }
 //return new array
 return output;
 }
+*/
+
+
 
 /** _.every
 * Arguments:
@@ -452,6 +458,23 @@ return output;
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
+_.every = function(collection, func){
+//Create result variable
+let result;
+
+//Use conditional chain to iterate through the collection depending on if it's an arr or obj
+    if(Array.isArray(collection) === true){
+        for(var i = 0; i < collection.length; i++){
+//call func parameter for each array element w/ provided args
+            callback(collection[i], i, collection);
+        }
+    }else{
+        for(var key in collection){
+            callback(collection[key], key, collection);
+        }
+    }
+
+}
 
 /** _.some
 * Arguments:
