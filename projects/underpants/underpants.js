@@ -418,6 +418,7 @@ return output;
 
 _.pluck = function(array, prop){
 
+/*
 //Create result variable
 let result;
 //iterate through array
@@ -436,6 +437,7 @@ let result;
         
     
 //return new array
+*/
 
 
 
