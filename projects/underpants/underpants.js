@@ -416,9 +416,10 @@ return output;
 
 _.pluck = function(array, prop){
 //Create result variable
-let result;
-//use map() to list the properties of each array element's prop            
-result = _.map(array, function(object){
+ 
+//use map() to list the properties of each array element's prop(the object's values), 
+  //and return the values of each key deposited into result variable           
+let result = _.map(array, function(object){
     return object[prop];
 });
 //return result 
@@ -448,37 +449,47 @@ return result;
 */
 
 _.every = function(collection, test){
-
-//if test is not present, 
-if(typeof test === undefined){
-    let test = function(collection){
-        return collection;
-    }
-}
-    
-//The every() method tests whether all elements in the array pass the test implemented by the provided function. 
-//It returns a Boolean value.
- //Use conditional chain to iterate through the collection depending on if it's an arr or obj
-    if(Array.isArray(collection) === true){
-        for(var i = 0; i < collection.length; i++){
-//call func parameter for each array element w/ provided args
- //If all iterations aren't true, return false.
-            if(!test(collection[i], i, collection)){
-                return false;
+let result;
+//if function is not provided, 
+    if(typeof test === "undefined"){
+//Use conditional chain to iterate through the collection depending on if it's an arr or obj,
+//Iterate through collection & return true if every array element is truthy (& vice versa)
+        if(Array.isArray(collection) === true){
+            for(var i = 0; i < collection.length; i++){
+//Use Boolean object as a function, ot !! to tell if element is truthy or falsey
+                if(Boolean(collection[i]) === false){
+                    return false;
+                }
+            }
+        }else if(collection && typeof collection === 'object' && collection.constructor === Object){
+            for(var key in collection){
+                if(!!collection[key] === false){
+                    return false;
+                }
+            }
+    return true;
+    }else if(typeof test === "function"){
+        if(Array.isArray(collection) === true){
+            for(var i = 0; i < collection.length; i++){
+//call func parameter for each array element w/ provided args.
+//If all iterations aren't true, return false.
+                if(Boolean(test(collection[i], i, collection)) === false){
+                    return false;
+                }
+            }
+        }else if(collection && typeof collection === 'object' && collection.constructor === Object){
+            for(var key in collection){
+                if(Boolean(test(collection[i], i, collection)) === false){
+                    return false;
+                }
             }
         }
-        return true;
-    }else if(collection && typeof collection === 'object' && collection.constructor === Object){
-        for(var key in collection){
-            if(!test(collection[key], key, collection)){
-                return false;
-            }
-        }
-        return true;
     }
 }
+//Return true if every element is truthy or true
+return true;
+}
 
-  
 
 /** _.some
 * Arguments:
