@@ -414,8 +414,6 @@ return output;
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
 
-
-
 _.pluck = function(array, prop){
 //Create result variable
 let result;
@@ -426,13 +424,6 @@ result = _.map(array, function(object){
 //return result 
 return result;
 }
-
-
-
-
-
-
-
 
 /** _.every
 * Arguments:
@@ -456,34 +447,38 @@ return result;
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
-_.every = function(collection, func){
-//Create result variable
-let result;
+_.every = function(collection, test){
 
- /*
+//if test is not present, 
+if(typeof test === undefined){
+    let test = function(collection){
+        return collection;
+    }
+}
+    
+//The every() method tests whether all elements in the array pass the test implemented by the provided function. 
+//It returns a Boolean value.
  //Use conditional chain to iterate through the collection depending on if it's an arr or obj
     if(Array.isArray(collection) === true){
         for(var i = 0; i < collection.length; i++){
 //call func parameter for each array element w/ provided args
-            result = func(collection[i], i, collection);
-            if(result === true){
-                return true;
-            }else{
+ //If all iterations aren't true, return false.
+            if(!test(collection[i], i, collection)){
                 return false;
             }
         }
-    }else{
+        return true;
+    }else if(collection && typeof collection === 'object' && collection.constructor === Object){
         for(var key in collection){
-            result = func(collection[key], key, collection);
-            if(result === true){
-                return true;    
-            }else{
+            if(!test(collection[key], key, collection)){
                 return false;
             }
         }
+        return true;
     }
-*/ 
 }
+
+  
 
 /** _.some
 * Arguments:
