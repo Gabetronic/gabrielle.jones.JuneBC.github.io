@@ -456,14 +456,14 @@ let result;
 //Iterate through collection & return true if every array element is truthy (& vice versa)
         if(Array.isArray(collection) === true){
             for(var i = 0; i < collection.length; i++){
-//Use Boolean object as a function, ot !! to tell if element is truthy or falsey
+//Use Boolean object as a function, or ! to tell if element is truthy or falsey
                 if(Boolean(collection[i]) === false){
                     return false;
                 }
             }
         }else if(collection && typeof collection === 'object' && collection.constructor === Object){
             for(var key in collection){
-                if(!!collection[key] === false){
+                if(!collection[key] === false){
                     return false;
                 }
             }
@@ -473,13 +473,13 @@ let result;
             for(var i = 0; i < collection.length; i++){
 //call func parameter for each array element w/ provided args.
 //If all iterations aren't true, return false.
-                if(Boolean(test(collection[i], i, collection)) === false){
+                if(test(collection[i], i, collection) === false){
                     return false;
                 }
             }
         }else if(collection && typeof collection === 'object' && collection.constructor === Object){
             for(var key in collection){
-                if(Boolean(test(collection[i], i, collection)) === false){
+                if(test(collection[i], i, collection) === false){
                     return false;
                 }
             }
