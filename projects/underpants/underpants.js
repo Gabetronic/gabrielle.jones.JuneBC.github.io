@@ -501,7 +501,37 @@ return true;
 *   _.some([1,3,5], function(e){return e % 2 === 0}) -> false
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
-
+_.some = function(collection, test){
+    //create count variable
+var count = 0;
+var array = Object.keys(collection);
+//if test parameter is a function, iterate over each element in collection parameter, 
+    if(typeof test === "function"){
+        for(var i = 0; i < collection.length || array.length; i++){
+//invoke test function for each array element
+            if(test(collection[i]) === true){
+//if an element is true, add it to count variable
+                count += 1; 
+            }
+        }
+    }
+//if count has any elements added, return true
+    if(count > 0){
+      return true;
+    }
+//if a test function is not provided, 
+    if(typeof test === "undefined"){
+//iterate over each element in collection,
+        for(var i = 0; i < collection.length || array.length; i++){
+//Use Boolean object as a function, or ! to tell if each element is truthy,
+            if(Boolean(collection[i]) === true){
+                return true;
+            }
+        }
+    }
+//if all other conditions pass, return false
+return false;
+}
 
 /** _.reduce
 * Arguments:
