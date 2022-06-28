@@ -1,14 +1,32 @@
 // Solve all of the following prompts using recursion.
+////////Anything in blue in the index.html file, you don't have to do!!!!!! ///////////
+
+
+
 
 // 1. Calculate the factorial of a number.  The factorial of a non-negative integer n,
 // denoted by n!, is the product of all positive integers less than or equal to n.
 // Example:  5! = 5 x 4 x 3 x 2 x 1 = 120
 // factorial(5);  // 120
-
-
-////////Anything in blue in the index.html file, you don't have to do!!!!!! ///////////
 var factorial = function(n) {
-};
+//BASE CASE
+
+//Log the final recursive product & stop recursion when n = 1
+  if(n === 1){
+    return n;
+  }
+
+//RECURSION
+  if(n < 0){
+    return null;
+//spec file expects factorial(0) to return 1:
+  }else if(n === 0){
+    return 1;
+  }else{
+//return the n multiplied by the function call - 1
+  return n * factorial(n - 1);
+  }
+}
 
 // 2. Compute the sum of an array of integers.
 // Example:  sum([1, 2, 3, 4, 5, 6]);  // 21
