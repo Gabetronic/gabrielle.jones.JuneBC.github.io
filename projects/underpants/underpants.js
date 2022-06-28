@@ -449,44 +449,34 @@ return result;
 */
 
 _.every = function(collection, test){
-let result;
-//if function is not provided, 
-    if(typeof test === "undefined"){
-//Use conditional chain to iterate through the collection depending on if it's an arr or obj,
-//Iterate through collection & return true if every array element is truthy (& vice versa)
-        if(Array.isArray(collection) === true){
-            for(var i = 0; i < collection.length; i++){
-//Use Boolean object as a function, or ! to tell if element is truthy or falsey
-                if(Boolean(collection[i]) === false){
-                    return false;
-                }
-            }
-        }else if(collection && typeof collection === 'object' && collection.constructor === Object){
-            for(var key in collection){
-                if(!collection[key] === false){
-                    return false;
-                }
-            }
-    return true;
-    }else if(typeof test === "function"){
-        if(Array.isArray(collection) === true){
-            for(var i = 0; i < collection.length; i++){
-//call func parameter for each array element w/ provided args.
-//If all iterations aren't true, return false.
-                if(test(collection[i], i, collection) === false){
-                    return false;
-                }
-            }
-        }else if(collection && typeof collection === 'object' && collection.constructor === Object){
-            for(var key in collection){
-                if(test(collection[i], i, collection) === false){
-                    return false;
-                }
+
+//create count variable
+var count = 0;
+//if test parameter is a function, iterate over each element in collection parameter, 
+    if(typeof test === "function"){
+        for(var i = 0; i < collection.length; i++){
+//invoke test function for each array element
+            if(test(collection[i], i, collection) === false){
+//if an element is false, add it to count variable
+                count += 1; 
             }
         }
     }
-}
-//Return true if every element is truthy or true
+//if count has any elements added, return false
+    if(count > 0){
+      return false;
+    }
+//if a test function is not provided, 
+    if(typeof test === "undefined"){
+//iterate over each element in collection,
+        for(var i = 0; i < collection.length; i++){
+//Use Boolean object as a function, or ! to tell if each element is falsey,
+            if(Boolean(collection[i]) === false){
+                return false;
+            }
+        }
+    }
+//if all other conditions pass, return true
 return true;
 }
 
