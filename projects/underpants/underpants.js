@@ -504,14 +504,27 @@ return true;
 _.some = function(collection, test){
     //create count variable
 var count = 0;
-var array = Object.keys(collection);
+
+
+ //|| Array.isArray(collection) === true){
+    
 //if test parameter is a function, iterate over each element in collection parameter, 
     if(typeof test === "function"){
-        for(var i = 0; i < collection.length || array.length; i++){
+        if(typeof collection === 'object' && collection.constructor === Object){ 
+            for(var key in collection){
 //invoke test function for each array element
-            if(test(collection[i]) === true){
+                if(test(collection[i], i, collection) === true){
 //if an element is true, add it to count variable
-                count += 1; 
+                    count += 1; 
+                }
+            }
+        }else if(Array.isArray(collection) === true){
+            for(var i = 0; i < collection.length; i++){
+//invoke test function for each array element
+                if(test(collection[i], i, collection) === true){
+//if an element is true, add it to count variable
+                    count += 1; 
+                }
             }
         }
     }
@@ -521,17 +534,28 @@ var array = Object.keys(collection);
     }
 //if a test function is not provided, 
     if(typeof test === "undefined"){
+        if(collection && typeof collection === 'object' && collection.constructor === Object){ 
+            for(var key in collection){
+                if(Boolean(collection[i], i, collection) === true){
+                    return true;
+                }
+            }
 //iterate over each element in collection,
-        for(var i = 0; i < collection.length || array.length; i++){
+        }else if(Array.isArray(collection) === true){
+            for(var i = 0; i < collection.length; i++){
 //Use Boolean object as a function, or ! to tell if each element is truthy,
-            if(Boolean(collection[i]) === true){
-                return true;
+                if(Boolean(collection[i], i, collection) === true){
+                    return true;
+                }
             }
         }
     }
 //if all other conditions pass, return false
 return false;
 }
+   
+
+
 
 /** _.reduce
 * Arguments:
