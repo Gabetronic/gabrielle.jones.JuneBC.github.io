@@ -504,25 +504,20 @@ return true;
 _.some = function(collection, test){
     //create count variable
 var count = 0;
-
-
- //|| Array.isArray(collection) === true){
     
-//if test parameter is a function, iterate over each element in collection parameter, 
+//if test parameter is a function, iterate over each element in collection parameter - "should handle objects":
     if(typeof test === "function"){
         if(typeof collection === 'object' && collection.constructor === Object){ 
-            for(var key in collection){
-//invoke test function for each array element
+            for(var i in collection){
+//invoke test function for each element
                 if(test(collection[i], i, collection) === true){
 //if an element is true, add it to count variable
                     count += 1; 
                 }
             }
-        }else if(Array.isArray(collection) === true){
+        }else{
             for(var i = 0; i < collection.length; i++){
-//invoke test function for each array element
                 if(test(collection[i], i, collection) === true){
-//if an element is true, add it to count variable
                     count += 1; 
                 }
             }
@@ -535,13 +530,13 @@ var count = 0;
 //if a test function is not provided, 
     if(typeof test === "undefined"){
         if(collection && typeof collection === 'object' && collection.constructor === Object){ 
-            for(var key in collection){
+            for(var i in collection){
                 if(Boolean(collection[i], i, collection) === true){
                     return true;
                 }
             }
 //iterate over each element in collection,
-        }else if(Array.isArray(collection) === true){
+        }else{
             for(var i = 0; i < collection.length; i++){
 //Use Boolean object as a function, or ! to tell if each element is truthy,
                 if(Boolean(collection[i], i, collection) === true){
@@ -554,8 +549,6 @@ var count = 0;
 return false;
 }
    
-
-
 
 /** _.reduce
 * Arguments:
