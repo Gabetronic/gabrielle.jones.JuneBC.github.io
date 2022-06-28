@@ -80,7 +80,15 @@ var isEven = function(n) {
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
-  
+
+//BASE
+if(n === 1 || -1){ //Should stop recursing at 1 or -1
+  return n;
+}
+//RECURSION
+// n-1(6) + n-2(5)
+return n - 1 + sumBelow(n - 2);
+//return output;
 };
 
 // 6. Get the integers in range (x, y).
