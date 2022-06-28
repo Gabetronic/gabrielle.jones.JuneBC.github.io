@@ -17,6 +17,7 @@ var factorial = function(n) {
   }
 
 //RECURSION
+//Shouldn't return a negative integer:
   if(n < 0){
     return null;
 //spec file expects factorial(0) to return 1:
@@ -30,8 +31,22 @@ var factorial = function(n) {
 
 // 2. Compute the sum of an array of integers.
 // Example:  sum([1, 2, 3, 4, 5, 6]);  // 21
-var sum = function(array) {
+var sum = function(array, output = 0) {
+//Added a default parameter set to 0, because output is a number
+    
+//BASE CASE
+//Stop recursing when array's length = 0 & return output
+  if(array.length === 0){
+    return output;
+  }
+  
+//RECURSION
+//output should equal the sum of the array's 1st value + the function called with the next value
+output = array[0] + sum(array.slice(1));
+return output;
+  
 };
+  
 
 // 3. Sum all numbers in an array containing nested arrays.
 // Example: arraySum([1,[2,3],[[4]],5]); // 15
@@ -40,12 +55,32 @@ var arraySum = function(array) {
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+//Must return a boolean,
+ //odds are there are more false than true, so make boolean true the base case
+
+//BASE CASE 
+ // Modulo equivalent of even
+  if(n === 0){ 
+    return true;
+  } 
+
+//RECURSION - iterate until true is found:
+ //Modulo equivalent of odd
+  if (n === 1){
+    return false;
+//Loop to resolve to modulo equivalents(either -1 or -2):
+  }else if(n < 0){
+    return isEven(- n); 
+  }else{
+    return isEven(n - 2); 
+  }
 };
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+  
 };
 
 // 6. Get the integers in range (x, y).
