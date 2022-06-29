@@ -569,14 +569,14 @@ return false;
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 
-_.reduce = function(array, func, seed){ // [1, 2, 3, 4]
+_.reduce = function(array, test, seed){ // [1, 2, 3, 4]
 //Create output variable
 var output;
 //1st - determine if seed was not passed in
     if(seed === undefined){ // because 0 is falsy, !seed doesn't work){
         output = array[0]; //Think of output as the accumulator value
         for(var i = 1; i < array.length; i++){ //output is already 0, so the loop doesn't have to start at 0
-            output = func(output, array[i]/*current*/, i, array); 
+            output = test(output, array[i]/*current*/, i, array); 
             /*invoke act of reducing:
                 func(1)
                 */
@@ -585,7 +585,7 @@ var output;
     }else{ 
         output = seed; //output = 0
         for(var i = 0; i < array.length; i++){
-            output = func(output, array[i], i, array); 
+            output = test(output, array[i], i, array); 
         }
     }
 return output;
@@ -594,7 +594,7 @@ return output;
 /** _.extend
 * Arguments:
 *   1) An Object
-*   2) An Object
+*   2) An Object 
 *   ...Possibly more objects
 * Objectives:
 *   1) Copy properties from <object 2> to <object 1>
@@ -605,6 +605,10 @@ return output;
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
+_.extend = function(object1, ...objects){  //used spread operator to suggest any other objects to be copied
+var output = Object.assign(object1, ...objects); //assigned output variable to Object.assign(1st obj, all other objs)
+return output; //returned output variable
+}
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
