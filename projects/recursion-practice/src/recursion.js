@@ -79,17 +79,31 @@ var isEven = function(n) {
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
-var sumBelow = function(n) {
+/*
+should return the sum of non-negative integers below given integer &
+should return the sum of an array of negative integer
+*/
+
+var sumBelow = function(n, output = 0){
 
 //BASE
-if(n === 1 || -1){ //Should stop recursing at 1 or -1
-  return n;
-}
+ //Should stop recursing at 0
+  if(n === 0){
+    return output;
+  }
 //RECURSION
 // n-1(6) + n-2(5)
-return n - 1 + sumBelow(n - 2);
-//return output;
-};
+if(n < 0){
+  output += n + 1;
+}else if(n > 0){
+  output += n - 1;
+}
+
+return sumBelow(n - 2, output);
+}
+
+
+
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
