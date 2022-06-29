@@ -42,10 +42,42 @@ console.log(familyTree); // prints {daughter: "Lyra Belacque, aka Lyra Silverton
 
 // 6. function //
 // Functions are the action verbs of coding: they use values to produce an action, or actions.
+function add(x, y, z){
+   var sum = x + y + z;
+   return sum;
+}
+console.log(add(1, 2, 3)); // prints 6
 
 // 7. undefined //
+// Undefined is the automatic value assigned to any variable that has not yet been assigned.
+var unassigned;
+console.log(unassigned); // prints ndefined
+
 // 8. null //
+// Null is the automatic value assigned to a unknown or invalid value.
+var blackHole = null;
+console.log(blackHole); // prints null
+
 // 9. NaN (Not a Number) //
+// NaN is the automatic value assigned to any value that is not a real number.
+var example = 3 * undefined;
+console.log(example); // prints NaN
+
 // 10. Infinity & -Infinity //
+// The Infinity & -(Negative) Infinity values represent the concept of a positive or negative infinite number.
+var maximumNumber = Infinity; // prints Infinity
+var minimumNumber = Number.NEGATIVE_INFINITY; // prints -Infinity
+
 // 11. Primitive vs. Complex Types //
-// 12. Copy by Value & Copy by Reference //
+// Data types fall under the category of either primitive or complex.  Primitive types have no methods and are immutable.
+// Only objects are considered complex data types: they have methods and are able to be changed; arrays are technically viewed as objects.
+var immutable = "Hello";
+immutable[0] = "J";
+console.log(immutable); // prints Hello
+
+var complexValue = [1, 2, 3];
+complexValue.push(4);
+console.log(complexValue); // prints [1, 2, 3, 4]
+
+
+// 12. Copy by Value vs. Copy by Reference //
