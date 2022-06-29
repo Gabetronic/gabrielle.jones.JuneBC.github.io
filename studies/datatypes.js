@@ -81,3 +81,17 @@ console.log(complexValue); // prints [1, 2, 3, 4]
 
 
 // 12. Copy by Value vs. Copy by Reference //
+// When copying a variable's value, the JS interpreter performs two different actions depending on whether the value is 
+// primitive or complex.  If the data copied is primitive, the interpreter attaches a copy of the original value to the new 
+// variable.  If the data copied is complex, the new variable will only reference the original value. By doing this, the
+// interpreter reinforces the traits of immutability in primitive data types vs. the mutability of complex types.
+var primitive = "Jason";
+var primitiveCopy = primitive;
+primitiveCopy = "Mason";
+console.log(primitive); //prints Jason
+console.log(primitiveCopy); // prints Mason
+
+var loki = {actor: "Tom Hiddleston", hornsOptional: "yes"};
+var complexCopy = loki;
+complexCopy.costumeColor = "green"; 
+console.log(loki); // prints {actor: "Tom Hiddleston", hornsOptional: "yes", costumeColor = "green"}
