@@ -22,12 +22,13 @@ var _ = require('underbar');
  *      C) DON'T FORGET TO save your work in your regular repository!!!
  */
 
+
+var maleCount = function(array) {
  /**Objective**: Find the number of male customers
  - **Input**: `Array`
  - **Output**: `Number`
  - **Constraints**: use `filter`
  */
-var maleCount = function(array) {
 //Use filter method to return new array with only objects with a gendered prop of male
     var males = _.filter(array, function(customer){
         return customers.gender === "male";
