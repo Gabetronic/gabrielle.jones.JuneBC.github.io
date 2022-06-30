@@ -66,10 +66,41 @@ function nth() {
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function deepEqual() {
-///Don't do this
+function deepEqual(value, value) { // x = {a: 1, b: 2}, y = {a: 1, b: 2}
+/* Create a function that takes any 2 values, return true if the 
+values equal each other & false if they don't equal each other.
+e.g. console.log({a: 1} === {a: 1}); //prints false b/c copy by reference 
+     console.log(deepEqual(1, 2)); // false
+     console.log(deepEqual("a", "a"); // true
+     console.log(deepEqual(2, 3); // true
+     console.log(deepEqual({a: 1} === {a: 1}); // true
+*/
+
+// determine if x AND y are both not objects
+if(typeof x !== 'object' && typeof y !== 'object'){
+    return x == y;
+}
+// determine if either x OR y is not an object
+if(typeof x !== 'object' || typeof y !== 'object'){
+    return x == y;
+}// if one is a simple data type & one is a complex type, sooo false!
+var xKeys = Object.keys(); // ["a", "b"]
+var yKeys = Object.keys(); // ["a", "b"]
+if(xKeys.length !== yKeys.length){
+  return false; // one of the arrays has more elements, soooo false!
+}
+// iterate through xKeys array using a for loop
+for(var i = 0; i < xKeys.length; i++){
+  //determine if the current key is NOT included in yKeys,
+  //OR the result of invoking deepEqual on the value at those keys is false
+  if(!yKeys.includes(xKeys[i]) || !deepEqual(x[xKeys[i]], y[xKeys[i]])){ //deepEqual(x['a'], y['a'])
+    return false;
+  }
+}
+return true;
 }
 
+//console.log(deepEqual({a: 1, b: 2}, {a: 1, b: 2})); // prints true
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////

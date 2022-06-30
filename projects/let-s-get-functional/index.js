@@ -33,16 +33,23 @@ var maleCount = function(array) {
     var males = _.filter(array, function(customer){
         return customers.gender === "male";
     }); 
-return males.length; //return "a number" of male customers
+    console.log(males.length);
+    //return males.length; //return "a number" of male customers
 };
 
-var femaleCount;
+var femaleCount = function(array){
 /*
 - **Objective**: Find the number of female customers
 - **Input**: `Array`
 - **Output**: `Number`
 - **Constraints**: use `reduce`
 */
+var females = _.reduce(array, function(customer){
+    return customers.gender === "female";
+    });
+return females.length; 
+};
+
 
 var oldestCustomer;
 /*
