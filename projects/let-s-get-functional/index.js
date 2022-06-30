@@ -31,24 +31,19 @@ var maleCount = function(array) {
  */
 //Use filter method to return new array with only objects with a gendered prop of male
     var males = _.filter(array, function(customer){
-        return customers.gender === "male";
+        return customer.gender === "male";
     }); 
-    console.log(males.length);
+return males.length;
     //return males.length; //return "a number" of male customers
 };
 
-var femaleCount = function(array){
+var femaleCount;
 /*
 - **Objective**: Find the number of female customers
 - **Input**: `Array`
 - **Output**: `Number`
 - **Constraints**: use `reduce`
 */
-var females = _.reduce(array, function(customer){
-    return customers.gender === "female";
-    });
-return females.length; 
-};
 
 
 var oldestCustomer;
@@ -59,6 +54,7 @@ var oldestCustomer;
 - **Constraints**:
 */
 
+//filter.map
 var youngestCustomer;
 /*
 - **Objective**: Find the youngest customer's name
