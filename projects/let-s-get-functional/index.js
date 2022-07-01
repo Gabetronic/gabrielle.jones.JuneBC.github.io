@@ -103,13 +103,33 @@ var youngestCustomer  = function(customers){
 - **Constraints**:
 */
 
-var averageBalance;
+var averageBalance = function(customers){
+    let total = 0;
+
+    let tallyOfCustomers = customers.filter(function(customer){
+        return customer.balance;
+    });
+    
+    let average = tallyOfCustomers.reduce(function(total, eachCustomer){
+        total + eachCustomer.balance;
+    }, 0) / tallyOfCustomers.length;
+
+    return average;
+}
 /*
 - **Objective**: Find the average balance of all customers
 - **Input**: `Array`
 - **Output**: `Number`
 - **Constraints**:
 */
+
+const people = [{name:'Sarah', gender:'female', age:25}, {name:'Tom', gender:'male', age:18}];
+
+const females = people.filter(person => person.gender === 'female');
+
+const average = females.reduce((total, next) => total + next.age, 0) / females.length;
+
+console.log(average);
 
 var firstLetterCount;
 /*
