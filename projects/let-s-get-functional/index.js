@@ -57,15 +57,22 @@ return females;
 
 
 var oldestCustomer = function(customers){
+//Need to get the highest value number out of the array - use Math.max()
+ //Need to iterate over array & return that age for later use - use .map()
+let oldestResult = Math.max(...customers.map(function(customer){
+    return customer.age;
+}));
+//Need to retrieve the name of the customer who === the oldest age found earlier - use filter & map
+let name = customers.filter(function(customer){
+    return customer.age === oldestResult; //return customer's age that matches the result of the oldest variable
+}).map(function(customer){
+    return customer.name;
+});
 
-let agesArray = customers.map(function(customer){
-    return customer.age + customer.name;
-}).sort(function(a, b){
-    return b - a;
-})
-let name = agesArray.slice(0, 1).toString().slice(2);
-return name;
+//Need to return a string of the oldest customer's name - use toString()
+return name.toString();
 }
+
 /*
 - **Objective**: Find the oldest customer's name
 - **Input**: `Array`
@@ -73,8 +80,22 @@ return name;
 - **Constraints**:
 */
 
-//filter.map
-var youngestCustomer;
+var youngestCustomer  = function(customers){
+    //Need to get the lowest value number out of the array - use Math.min()
+     //Need to iterate over array & return that age for later use - use .map()
+    let youngestResult = Math.min(...customers.map(function(customer){
+        return customer.age;
+    }));
+    //Need to retrieve the name of the customer who === the oldest age found earlier - use filter & map
+    let name = customers.filter(function(customer){
+        return customer.age === youngestResult; //return customer's age that matches the result of the youngest variable
+    }).map(function(customer){
+        return customer.name;
+    });
+    
+    //Need to return a string of the youngest customer's name - use toString()
+    return name.toString();
+    }
 /*
 - **Objective**: Find the youngest customer's name
 - **Input**: `Array`
