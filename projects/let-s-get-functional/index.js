@@ -15,7 +15,7 @@ var _ = require('underbar');
  * 3. We started the first one for you as an example! Make the rest in that style.
  *
  * 4. To test your work:
- * 
+ *  USE OS TEST INSTEAD!!!!!
  *      A) cd into workspace (type cd .. in terminal until terminal reads /workspace)
  *      B) Copy & paste the following code into the terminal:
  *              npm start --prefix ./gabrielle.jones.JuneBC.github.io/projects/let-s-get-functional
@@ -23,30 +23,46 @@ var _ = require('underbar');
  */
 
 
-var maleCount = function(array) {
+var maleCount = function(customers) {
  /**Objective**: Find the number of male customers
  - **Input**: `Array`
  - **Output**: `Number`
  - **Constraints**: use `filter`
  */
 //Use filter method to return new array with only objects with a gendered prop of male
-    var males = _.filter(array, function(customer){
+    var males = customers.filter(function(customer){
         return customer.gender === "male";
     }); 
 return males.length;
     //return males.length; //return "a number" of male customers
 };
 
-var femaleCount;
+
 /*
 - **Objective**: Find the number of female customers
 - **Input**: `Array`
 - **Output**: `Number`
 - **Constraints**: use `reduce`
 */
+var femaleCount = function(customers){
+
+    var females = customers.reduce(function(count, customer){
+        if(customer.gender === "female"){
+            count++;
+        }
+    return count;
+    }, 0);
+return females;
+}
 
 
-var oldestCustomer;
+var oldestCustomer(customers){
+let oldestName;
+
+oldestName = customers.filter(function(customer){
+    return customer.age && customer.name;
+});
+}
 /*
 - **Objective**: Find the oldest customer's name
 - **Input**: `Array`
