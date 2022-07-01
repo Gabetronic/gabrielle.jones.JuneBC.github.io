@@ -56,12 +56,15 @@ return females;
 }
 
 
-var oldestCustomer(customers){
-let oldestName;
+var oldestCustomer = function(customers){
 
-oldestName = customers.filter(function(customer){
-    return customer.age && customer.name;
-});
+let agesArray = customers.map(function(customer){
+    return customer.age + customer.name;
+}).sort(function(a, b){
+    return b - a;
+})
+let name = agesArray.slice(0, 1).toString().slice(2);
+return name;
 }
 /*
 - **Objective**: Find the oldest customer's name
