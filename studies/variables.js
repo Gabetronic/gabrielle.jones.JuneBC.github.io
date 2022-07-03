@@ -37,14 +37,26 @@ console.log(myNameIs); // prints => Maame
 //You can re-declare & re-assign a variable declared or initialized with the var keyword.
 var myAge = 35;
 myAge = 36;
+
 var myAge;
 console.log(myAge); // prints => 36
 
 //7. Let Keyword //
 //You can re-assign a variable declared or initialized with the let keyword, but you can't re-declare that variable.
+let year = 2022;
+year = 2023;
+console.log(year); // prints 2023
+
+let year;
+console.log(year); // SyntaxError: Identifier 'year' has already been declared
 
 
 //8. Const Keyword //
 //You can neither re-declare or re-assign a variable declared or initialized with the const keyword.
+const favoriteBand = "Nine Inch Nails";
+const favoriteBand; // SyntaxError: Identifier 'favoriteBand' has already been declared
+
+favoriteBand = "A Tribe Called Quest"; 
+console.log(favoriteBand); // TypeError: Assignment to constant variable.
 
 //9. Hoisting //
