@@ -30,9 +30,21 @@ console.log(myNameIs); // prints => Esi
 
 //5. Intializing //
 //To save time, you can name and define a variable by initializing it. 
-var myNameIs = "Esi";
-console.log(myNameIs); // prints => Esi
+var myNameIs = "Maame";
+console.log(myNameIs); // prints => Maame
 
-//6. Keywords: var, let, const //
+//6. Var Keyword //
+//You can re-declare & re-assign a variable declared or initialized with the var keyword.
+var myAge = 35;
+myAge = 36;
+var myAge;
+console.log(myAge); // prints => 36
 
-//7. Hoisting //
+//7. Let Keyword //
+//You can re-assign a variable declared or initialized with the let keyword, but you can't re-declare that variable.
+
+
+//8. Const Keyword //
+//You can neither re-declare or re-assign a variable declared or initialized with the const keyword.
+
+//9. Hoisting //
