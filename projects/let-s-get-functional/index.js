@@ -114,7 +114,7 @@ var averageBalance = function(customers){
         total + eachCustomer.balance;
     }, 0) / tallyOfCustomers.length;
 
-    return average;
+    return Number(average);
 }
 /*
 - **Objective**: Find the average balance of all customers
@@ -122,12 +122,6 @@ var averageBalance = function(customers){
 - **Output**: `Number`
 - **Constraints**:
 */
-
-const people = [{name:'Sarah', gender:'female', age:25}, {name:'Tom', gender:'male', age:18}];
-
-const females = people.filter(person => person.gender === 'female');
-
-const average = females.reduce((total, next) => total + next.age, 0) / females.length;
 
 console.log(average);
 
