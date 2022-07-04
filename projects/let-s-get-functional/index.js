@@ -3,7 +3,7 @@
 'use strict';
 
 var customers = require('./data/customers.json');
-var _ = require('underbar');
+var _ = require('lodown-gabrielle.jones.JuneBC');
 
 /**
  * 1. Import your lodown module using the require() method,
@@ -113,7 +113,7 @@ var averageBalance = function(customers){
     let average = tallyOfCustomers.reduce(function(total, eachCustomer){
         total + eachCustomer.balance;
     }, 0) / tallyOfCustomers.length;
-
+    console.log(average);
     return Number(average);
 }
 /*
@@ -123,7 +123,7 @@ var averageBalance = function(customers){
 - **Constraints**:
 */
 
-console.log(average);
+
 
 var firstLetterCount;
 /*
