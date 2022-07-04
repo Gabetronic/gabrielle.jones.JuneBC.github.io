@@ -3,7 +3,7 @@
 'use strict';
 
 var customers = require('./data/customers.json');
-var _ = require('lodown-gabrielle.jones.JuneBC');
+var _ = require('underbar');
 
 /**
  * 1. Import your lodown module using the require() method,
@@ -80,7 +80,7 @@ return name.toString();
 - **Constraints**:
 */
 
-var youngestCustomer  = function(customers){
+var youngestCustomer = function(customers){
     //Need to get the lowest value number out of the array - use Math.min()
      //Need to iterate over array & return that age for later use - use .map()
     let youngestResult = Math.min(...customers.map(function(customer){
@@ -104,25 +104,21 @@ var youngestCustomer  = function(customers){
 */
 
 var averageBalance = function(customers){
-    let total = 0;
+  var average = _.reduce(customers, function(output, customer){
+    var stringToNumber = customer.balance.slice(1).split(",").join(""); // convert the balance string to a number
+    var number = Number.parseFloat(stringToNumber);
+    output += number; // add the balance as a number of each customer to the seed output (which starts at 0)
+    return output; // return output
+  }, 0);
 
-    let tallyOfCustomers = customers.filter(function(customer){
-        return customer.balance;
-    });
-    
-    let average = tallyOfCustomers.reduce(function(total, eachCustomer){
-        total + eachCustomer.balance;
-    }, 0) / tallyOfCustomers.length;
-    console.log(average);
-    return Number(average);
-}
+  return average / customers.length; // divide the balances output by the number of customers (& return the average of the balances)
 /*
 - **Objective**: Find the average balance of all customers
 - **Input**: `Array`
 - **Output**: `Number`
 - **Constraints**:
 */
-
+}
 
 
 var firstLetterCount;
