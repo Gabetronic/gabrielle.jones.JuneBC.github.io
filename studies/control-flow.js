@@ -15,9 +15,11 @@ if(3 + 3 === 6){
 }
 // 2. Else-if statement //
 
-if("snake" === "iguana"){
-    console.log("These animals are the same.");
-}else if()
+if("2" === 2){
+    console.log("These things are the same.");
+}else if(2 === 2){
+    console.log("No, these two things are the same.");
+}
 // 3. Else statement //
 
 // 4. Switch statement //
