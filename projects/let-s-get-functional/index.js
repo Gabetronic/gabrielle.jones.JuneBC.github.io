@@ -140,22 +140,24 @@ var firstLetterCount = function(customers, letter){
   };
 
 
-  var friendFirstLetterCount = function(customers, customer, letter){
+  var friendFirstLetterCount = function(array, customer, letter){
     //Create output variable & set to 0
       var output = 0;
     //Loop over each customer
-      _.each(customers, function(customer){
+      _.each(array, function(element){
     //Create a conditional that finds how many customer's friends' names start with the <letter>, & increments output if condition is true
       //friends: [{id: 1, name: ""}, {}, {}], greeting: "Hola", etc.
-        if(customer.name === customer){   
-          if(customer.friends[i].name.toCharAt(0).toLowerCase() === letter.toLowerCase()){
+        if(element.name === customer){   
+          for(var i = 0; i < element.friends.length; i++){
+            if(element.friends[i].name[0].toLowerCase() === letter.toLowerCase()){
             output++;
+            }
           }
         }
-      })    
+      });
     //return output
     return output; 
-    }
+    };
 /*
 - **Objective**: Find how many friends of a given customer have names that start with a given letter
 - **Input**: `Array`, `Customer`, `Letter`
