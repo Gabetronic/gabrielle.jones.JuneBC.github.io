@@ -121,13 +121,24 @@ var averageBalance = function(customers){
 }
 
 
-var firstLetterCount;
-/*
+var firstLetterCount = function(customers, letter){
+  /*
 - **Objective**: Find how many customer's names begin with a given letter
  - **Input**: `Array`, `Letter`
  - **Output**: `Number`
  - **Constraints**:
  */
+
+    return _.reduce(customers, function(output, customer){
+  //Create a conditional - if customer's name begins with <letter>, increment output
+    if(customer.name.charAt(0).toLowerCase() === letter.toLowerCase()){
+      output++;
+    }
+  //return output
+  return output; 
+  }, 0)
+  };
+
 
 var friendFirstLetterCount;
 /*
