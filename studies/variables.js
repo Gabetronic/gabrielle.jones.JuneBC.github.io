@@ -33,7 +33,7 @@ console.log(myNameIs); // prints => Esi
 var myNameIs = "Maame";
 console.log(myNameIs); // prints => Maame
 
-//6. Var Keyword //
+//6. Var keyword //
 //You can re-declare & re-assign a variable declared or initialized with the var keyword.
 var myAge = 35;
 myAge = 36;
@@ -41,7 +41,7 @@ myAge = 36;
 var myAge;
 console.log(myAge); // prints => 36
 
-//7. Let Keyword //
+//7. Let keyword //
 //You can re-assign a variable declared or initialized with the let keyword, but you can't re-declare that variable.
 let year = 2022;
 year = 2023;
@@ -50,8 +50,7 @@ console.log(year); // prints 2023
 let year;
 console.log(year); // SyntaxError: Identifier 'year' has already been declared
 
-
-//8. Const Keyword //
+//8. Const keyword //
 //You can neither re-declare or re-assign a variable declared or initialized with the const keyword.
 const favoriteBand = "Nine Inch Nails";
 const favoriteBand; // SyntaxError: Identifier 'favoriteBand' has already been declared
