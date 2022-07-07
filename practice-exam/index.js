@@ -88,19 +88,34 @@ let dogs = [
 ]
 
 // 1.
-var greeting;
+var greeting = function(greeting, location, time){
+//Concatenate parameters together with a space between each
+    console.log(greeting + " " + location + " " + time);
+};
 
 
 
 // 2.
-var contestants;
-
+var contestants = function(dogs){
+//return the length of the dogs array
+    return dogs.length;
+};
 
 
 // 3.
-var filterSpecies;
+/*var filterSpecies = [
+
+    dogs.filter(function(dog){
+        if(dog.species !== "dog"){
+            return dog.species;
+        }
+    });
+
+];*/
 
 
+//Using the native filter method with our `dogs` array
+//create an array called `filterSpecies` that will filter out all of the species that are not dogs!
 
 // 4. 
 var dogContestants;
