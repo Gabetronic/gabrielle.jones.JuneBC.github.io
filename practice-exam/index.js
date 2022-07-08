@@ -103,32 +103,68 @@ var contestants = function(dogs){
 
 
 // 3.
-/*var filterSpecies = [
-
-    dogs.filter(function(dog){
-        if(dog.species !== "dog"){
+var filterSpecies = dogs.filter(function(dog){
+//if an element of the dogs array is a dog, return it to this variable
+        if(dog.species === "dog"){
             return dog.species;
-        }
+        } 
     });
 
-];*/
-
-
-//Using the native filter method with our `dogs` array
-//create an array called `filterSpecies` that will filter out all of the species that are not dogs!
 
 // 4. 
-var dogContestants;
-
+var dogContestants = [...filterSpecies]; // use spread operator to make a copy of filterSpecies array
 
 
 // 5. 
-var dogsWithClasses;
-    
 
+var dogsWithClasses = dogContestants.map(function(dog){
+
+    if (dog.weight >= 0 && dog.weight <= 10){  // DON'T FORGET THE COMPARISON OPERATORS NEED TO INCLUDE THE NUMBERS GIVEN, i.e. >= not >
+        dog.class = "red";
+    }else if(dog.weight >= 11 && dog.weight <= 20){
+        dog.class = "yellow";
+    }else if(dog.weight > 21){
+        dog.class = "green";
+    }
+return dog;
+});
+    
+/*
+5. Now that we have our `dogContestants` array, we need to add a `class` property to each dog object.
+    Using the native map method, add a key of `class` with the value:
+        - "red" if the dog's weight is between 0 and 10.
+        - "yellow" if the dog's weight is between 11 and 20.
+        - "green" if the dog's weight is 21 or over.
+*/
 
 // 6.
-var firstInClass;
+var firstInClass = function(topDogs, output = {}){
+/*
+Using recursion, copy all of the properties into one object and return that object. If you'd like an idea of our data 
+structure, look in the dogData.js file. => HERE IS DOESN'T SPECIFY using DogsWithContestants, topDogs, etc. but it is referring to TopDogs.  Should be pure, so better to just say array instead of the variable name
+*/
+
+//base - when initial object is empty, stop
+if(topDogs.length === 0)
+return output;
+
+
+//recursion - copy all props into new obj
+output = {...output, ...topDogs[0]};
+return firstInClass(topDogs.slice(1), output);
+/*
+OR --
+for(var key in array[0]{
+    object[key] = array[0][key];
+}
+Then, the return statement from above.
+
+OR --
+Object.assign(array, output);
+})
+*/
+}
+
 
 
 
