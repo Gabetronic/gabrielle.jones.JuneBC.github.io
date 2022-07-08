@@ -181,7 +181,25 @@ var topThreeTags;
 - **Constraints**:
 */
 
-var genderCount;
+var genderCount = function(customers){
+//Create output variable to hold output object
+var output = {}; 
+//create a variable to hold the reduce function that creates the content for the output object
+let genders = customers.reduce(function(output, customer){
+//if customer's gender exists, add 1 to the tally
+  if(output[customer.gender]){
+    output[customer.gender] += 1;
+//else, create the customer's gender inside the output object
+  }else{
+    output[customer.gender] = 1;
+  }
+//return the output 
+  return output;   
+  }, {});
+//return the content inside the output
+return genders;
+};
+
 /*- **Objective**: Create a summary of genders, the output should be:
 ```javascript
 {
