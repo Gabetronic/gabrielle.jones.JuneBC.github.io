@@ -165,7 +165,18 @@ var firstLetterCount = function(customers, letter){
 - **Constraints**:
 */
 
-var friendsCount;
+var friendsCount = function(customers, name){
+  // Need to get to the values inside the array of objs that is the friends list - use .pluck
+  //Need to iterate through values array & see which names match the input name - use .filter & conditional statement
+  // Can't use filter without referencing friends array
+ 
+let count = _.pluck(_.filter(customers, customer =>_.some(customer.friends, friend =>
+  friend.name === name)), "name");
+//return count 
+return count;
+};
+
+
 /*
 - **Objective**: Find the customers' names that have a given customer's name in their friends list
  - **Input**: `Array`, `Name`
