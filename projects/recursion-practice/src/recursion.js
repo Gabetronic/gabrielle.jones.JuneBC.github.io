@@ -84,22 +84,20 @@ should return the sum of non-negative integers below given integer &
 should return the sum of an array of negative integer
 */
 
-var sumBelow = function(n, output = 0){
+var sumBelow = function(n){
 
 //BASE
  //Should stop recursing at 0
   if(n === 0){
-    return output;
+    return n;
   }
 //RECURSION
-// n-1(6) + n-2(5)
+// n-1(6) + n-1(5)
 if(n < 0){
-  output += n + 1;
+  return n + 1 + sumBelow(n + 1);
 }else if(n > 0){
-  output += n - 1;
-}
-
-return sumBelow(n - 2, output);
+  return n - 1 + sumBelow(n - 1);
+};
 }
 
 
@@ -108,6 +106,18 @@ return sumBelow(n - 2, output);
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 var range = function(x, y) {
+//base
+if(y - x === 0){
+  return [x];
+
+//recursion
+}else{
+    var arr = range(x + 1, y + 1);  // 
+    numbers.unshift(y); 3,10
+    return arr;
+}
+
+
 };
 
 // 7. Compute the exponent of a number.
