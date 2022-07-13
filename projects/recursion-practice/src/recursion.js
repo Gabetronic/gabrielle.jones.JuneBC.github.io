@@ -108,9 +108,9 @@ if(n < 0){
 var range = function(x, y) {
   let output = [];
   //base
-  if(x === y - 1 || x === y + 1){ // 2 = 8 7 6 5 4 3 2 || 9 = 1 2 3 4 5 6 7 8 9
+  if(x === y - 1 || x === y + 1 || x === y){ // 2 = 8 7 6 5 4 3 2 || 9 = 1 2 3 4 5 6 7 8 9
     return output;
-    
+
   }else if(x < y){
     output.push(x + 1); //(2, 9)=> 3 4 5 6 7 8
     console.log(output);
