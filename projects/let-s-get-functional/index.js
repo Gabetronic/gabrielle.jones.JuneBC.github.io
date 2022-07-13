@@ -188,14 +188,14 @@ var topThreeTags = function(customers) {
 //Find a way to get all of the tags from each customer one place - use .reduce
   let tags = _.reduce(customers, function(output, customer) { 
 //Create an array to hold all of the tags
-  let array = customer.tags;
-// Iterate over the tags array,
-  //if the output obj has a key/value pair that matches the tag's value, add 1 to it, else create a new key/value pair 
-  _.each(array, function(tag) {
-    if(output[tag]) {
+  let arr = customer.tags;
+  
+// Iterate over the tags array of key/value pairs,
+  _.each(arr, function(tag) {
+    if(output[tag]){ // if it exists, add 1 to the tally
       output[tag]++;
-    } else {
-      output[tag] = 1;
+    }else{
+      output[tag] = 1; //else, create the tally
     }
   });
 //Return output
@@ -203,17 +203,15 @@ var topThreeTags = function(customers) {
   }, {});
 //Need to sort through output for most used tags - use .sort
   //can't use Obj.entries => ["lorem", 2, "ipsum", 4] - use _.each
-let tagsArr = [];
-  _.each(tags, function(value, key, object) {
-    tagsArr.push([key, value]);
-  });
+let newArray = [];
+newArray.push(tags);
 
 //Sort by tally, not by name
-let sorted = tagsArr.sort(function(a, b) {
+let sorted = newArray.sort(function(a, b) {
   return b[1] - a[1];
   });
-//Create variable to hold the top 3 of the tagsArr - use .slice
-let topThree = sorted.slice(0, -3);
+//Create variable to hold the top 3 of the new array - use .slice
+let topThree = sorted.slice(0, 3);
 
 return topThree;
 };
