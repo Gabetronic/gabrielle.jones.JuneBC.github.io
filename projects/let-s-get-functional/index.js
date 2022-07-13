@@ -204,7 +204,7 @@ var topThreeTags = function(customers) {
 //Need to sort through output for most used tags - use .sort
   //can't use Obj.entries => ["lorem", 2, "ipsum", 4] - use _.each
 let newArray = [];
-newArray.push(tags);
+newArray = Object.entries(tags);
 
 //Sort by tally, not by name
 let sorted = newArray.sort(function(a, b) {
