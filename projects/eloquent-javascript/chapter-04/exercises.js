@@ -91,17 +91,31 @@ modifies the array given as argument by reversing its elements.
 // arrayToList /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function arrayToList() {
-///Don't do this
+function arrayToList(array) {
+//create a rest value and initialize to null
+let rest = null;
+//iterate backwards
+for(var i = array.length -1; i >= 0; i--){
+  rest = {value: array[i], rest: rest};
+}
+return rest;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // listToArray /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function listToArray() {
-///Don't do this
+function listToArray(list, array = []) {
+//base
+if(list.rest === null){
+  array.push(list.value);
+  return array;
 }
+//recursion
+array.push(list.value);
+return listToArray(list.rest, array);
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // prepend /////////////////////////////////////////////////////////////////////
@@ -123,7 +137,7 @@ function nth() {
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function deepEqual(value, value) { // x = {a: 1, b: 2}, y = {a: 1, b: 2}
+function deepEqual(x, y) { // x = {a: 1, b: 2}, y = {a: 1, b: 2}
 /* Create a function that takes any 2 values, return true if the 
 values equal each other & false if they don't equal each other.
 e.g. console.log({a: 1} === {a: 1}); //prints false b/c copy by reference 
@@ -139,10 +153,10 @@ if(typeof x !== 'object' && typeof y !== 'object'){
 }
 // determine if either x OR y is not an object
 if(typeof x !== 'object' || typeof y !== 'object'){
-    return x == y;
+    return false;
 }// if one is a simple data type & one is a complex type, sooo false!
-var xKeys = Object.keys(); // ["a", "b"]
-var yKeys = Object.keys(); // ["a", "b"]
+var xKeys = Object.keys(x); // ["a", "b"]
+var yKeys = Object.keys(y); // ["a", "b"]
 if(xKeys.length !== yKeys.length){
   return false; // one of the arrays has more elements, soooo false!
 }
