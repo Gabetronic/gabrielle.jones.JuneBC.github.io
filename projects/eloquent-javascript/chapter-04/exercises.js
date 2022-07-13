@@ -78,15 +78,14 @@ function reverseArrayInPlace(array) {
 /* "The second, reverseArrayInPlace, does what the reverse method does: it 
 modifies the array given as argument by reversing its elements.
 */
-//Create a copy of the array input
-let output = [];
-//Iterate in reverse:
-  for(var i = array.length - 1; i >= 0; i--){
-    output.push(array[i]);
+
+//Iterate over array.  
+ //Use .splice to add the last item of the array using .pop
+  for(var i = 0; i < array.length; i++){
+    array.splice(i, 0, array.pop());
   }
-return output;
 }
-//array.slice(0)
+//array.splice(0)
 
 ////////////////////////////////////////////////////////////////////////////////
 // arrayToList /////////////////////////////////////////////////////////////////
