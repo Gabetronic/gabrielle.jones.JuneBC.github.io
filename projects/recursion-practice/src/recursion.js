@@ -106,19 +106,22 @@ if(n < 0){
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 var range = function(x, y) {
-//base
-if(y - x === 0){
-  return [x];
-
-//recursion
-}else{
-    var arr = range(x + 1, y + 1);  // 
-    numbers.unshift(y); 3,10
-    return arr;
-}
-
-
-};
+  let output = [];
+  //base
+  if(x === y - 1 || x === y + 1){ // 2 = 8 7 6 5 4 3 2 || 9 = 1 2 3 4 5 6 7 8 9
+    return output;
+    
+  }else if(x < y){
+    output.push(x + 1); //(2, 9)=> 3 4 5 6 7 8
+    console.log(output);
+    return output.concat(range(x + 1, y)); // [3].concat(range(3, 9)), [4].concat(range(4, 9)), etc.
+  
+  }else if(x > y){
+    output.push(x - 1); //(9, 2)=> 8 7 6 5 4 3 
+      console.log(output);
+     return output.concat(range(x - 1, y));
+  }
+  }
 
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.
