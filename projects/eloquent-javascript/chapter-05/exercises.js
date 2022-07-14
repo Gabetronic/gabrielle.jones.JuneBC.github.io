@@ -35,20 +35,40 @@ When defining the function, you can use a regular loop to do the actual looping.
 // every ///////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function every(array, test) {
+function every(collection, test){
 /* Implement every as a function that takes an array and a predicate function as 
-parameters. Write two versions, one using a loop and one using the some method. */
+parameters. */
 
-//iterate through array
-array.forEach(function(element){
-//if each element doesn't pass the test function, return false,
-  if(test(element) === false){
-    return false;
-  }
-//else, return true
-  return true;
-});
+//create count variable
+var count = 0;
+//if test parameter is a function, iterate over each element in collection parameter, 
+    if(typeof test === "function"){
+        for(var i = 0; i < collection.length; i++){
+//invoke test function for each array element
+            if(test(collection[i], i, collection) === false){
+//if an element is false, add it to count variable
+                count += 1; 
+            }
+        }
+    }
+//if count has any elements added, return false
+    if(count > 0){
+      return false;
+    }
+//if a test function is not provided, 
+    if(typeof test === "undefined"){
+//iterate over each element in collection,
+        for(var i = 0; i < collection.length; i++){
+//Use Boolean object as a function, or ! to tell if each element is falsey,
+            if(Boolean(collection[i]) === false){
+                return false;
+            }
+        }
+    }
+//if all other conditions pass, return true
+return true;
 }
+
 
 // /////////////////////////////////////////////////////////////////////////////
 // dominantDirection ///////////////////////////////////////////////////////////
