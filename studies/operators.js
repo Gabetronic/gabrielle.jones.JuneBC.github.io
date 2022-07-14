@@ -11,15 +11,22 @@
 // 2. arithmetic operators //
 // 3. comparison operators //
 // 4. logical operators //
+// 5. unary operators //
+// There are several types of unary operators, or operators that evalute a single operand.  Here are three:
+// The unary negation operator sits in front of its operand, and tries to convert it to a negative number.
+ var example = -"3";
+ console.log(example); // prints -3
 
-// The logical NOT operator reverses the Boolean value of its operand.
+// The typeof operator evaluates the data type of its operand, and returns a string of the name of the operand's data type.
+ console.log(typeof "help"); // prints string
+
+ // The logical NOT operator reverses the Boolean value of its operand.
 var age = !true;   
-console.log(age); //prints => false
+console.log(age); // prints => false
 
 // Certain expressions are naturally considered false in Javascript: null, NaN, 0, undefined, and string literals.
 // When the logical NOT operates on these values, they will always return a Boolean value of true.
 var nullValue = !null;  
-console.log(nullValue); //prints => true
+console.log(nullValue); // prints => true
 
-// 5. unary operators //
 // 6. ternary operators //
