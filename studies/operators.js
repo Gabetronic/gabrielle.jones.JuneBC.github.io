@@ -8,9 +8,28 @@
 *Concept explanation + a working code example + comment of what should return/print:
 */
 // 1. assignment operators //
+// These operators assign a value to their left operand based on the value of their right operand.
+var y = 7;
+var string = "string";
+console.log(y, string); // prints 7 string
+
 // 2. arithmetic operators //
-// 3. comparison operators //
+// Takes numerical values as operands, and returns a single number value. 
+let multiply = 2 * 2;
+console.log(multiply); //prints 4
+
+// 3. comparison operators // 
+//Compares operands and returns a Boolean value based on whether or not the comparison is true.
+let compare = 3 > 1.5;
+console.log(compare); // prints true
+
 // 4. logical operators //
+// Logical operators decide if the operands bordering them are logically-related.  They return a Boolean 
+// value based on the truthiness of the relationship between operands.
+let x = 5;
+let maybe = x === x || x == "x";
+console.log(maybe); // prints true
+
 // 5. unary operators //
 // There are several types of unary operators, or operators that evalute a single operand.  Here are three:
 // The unary negation operator sits in front of its operand, and tries to convert it to a negative number.
@@ -29,4 +48,10 @@ console.log(age); // prints => false
 var nullValue = !null;  
 console.log(nullValue); // prints => true
 
-// 6. ternary operators //
+// 6. ternary operator //
+// As the name suggests, the ternary operator evaluates three operands: an expression used to state a condition, 
+// an expression used when the condition is true, and an expression executed when the condition is false.
+let three = function(value){
+   return typeof value === "string"? "This is a string." : "This isn't a string.";
+}
+console.log(three("goal")); // prints This is a string.
