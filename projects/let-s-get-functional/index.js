@@ -210,9 +210,14 @@ newArray = Object.entries(tags);
 let sorted = newArray.sort(function(a, b) {
   return b[1] - a[1];
   });
-//Create variable to hold the top 3 of the new array - use .slice
-let topThree = sorted.slice(0, 3);
-
+//Create variable to hold the top 3 of the new array - use .slice 
+let lastArr = sorted.slice(0, 3);  
+// Take off the tally in topThree variable
+let topThree = [];
+for(var i = 0; i < lastArr.length; i++){
+  topThree.push(lastArr[i][0]);
+}
+//return result
 return topThree;
 };
 

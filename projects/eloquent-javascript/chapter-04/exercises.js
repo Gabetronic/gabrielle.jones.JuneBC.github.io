@@ -82,20 +82,22 @@ modifies the array given as argument by reversing its elements.
 //Iterate over array.  
  //Use .splice to add the last item of the array using .pop
   for(var i = 0; i < array.length; i++){
-    array.splice(i, 0, array.pop());
+    array.splice(i, 0, array.pop());  //[1,2,3,4]=>  start at i(1) & add the value(4) from array.pop => [4,1,2,3], etc.
   }
 }
-//array.splice(0)
 
 ////////////////////////////////////////////////////////////////////////////////
 // arrayToList /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
+//List = "a nested set of objects," where 1st value holds second, etc., == like a outer & inner f(x)
 function arrayToList(array) {
 //create a rest value and initialize to null
+  //rest literally means the rest of the nests.  last rest = nothing, null
 let rest = null;
-//iterate backwards
+//for each iteration backwards
 for(var i = array.length -1; i >= 0; i--){
+//add an array to the list
   rest = {value: array[i], rest: rest};
 }
 return rest;
@@ -105,13 +107,13 @@ return rest;
 // listToArray /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function listToArray(list, array = []) {
-//base
+function listToArray(list, array = []) { //default parameter required
+//base - if it's the last object in the list, push it's value to an array & exit
 if(list.rest === null){
   array.push(list.value);
   return array;
 }
-//recursion
+//recursion - push the list object's values to the array & recursively iterate through the "rest" of the list
 array.push(list.value);
 return listToArray(list.rest, array);
 }
@@ -121,17 +123,41 @@ return listToArray(list.rest, array);
 // prepend /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function prepend() {
-//Inserts value into list at first indexed position {Object(value, rest)}
+function prepend(value, list) {
+  /*"add a helper function prepend, which takes an element and a list and creates 
+  a new list that adds the element to the front of the input list 
+**Inserts value into list at first indexed position {Object(value, rest)}
+*/
+//create a new list -- {value: array[i], rest: rest} but {value, then rest of the list}
+ //return 
+  return {value, rest: list};
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // nth /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function nth() {
+function nth(list, num) {
+  /*
+ Add a function nth, which takes a list and a number and returns the element at the given position in the list 
+  (with zero referring to the first element) or undefined when there is no such element."
 
+ **return nth value in given list
+ */
+
+
+//base - stop if there's no list or first value is returned
+  if(!list){ 
+    return undefined; //if no elements, return undefined
+  }else if(num === 0){
+    return list.value;
+   
+//recursion - recurse until nth value is found
+  }else{
+    return nth(list.rest, num - 1);
+  } 
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // deepEqual ///////////////////////////////////////////////////////////////////
