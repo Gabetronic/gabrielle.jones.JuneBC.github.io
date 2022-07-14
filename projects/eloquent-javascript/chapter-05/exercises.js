@@ -2,6 +2,8 @@
 // flatten /////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
+const { characterScript } = require("./helpers");
+
 function flatten(array) {
 /* Use the reduce method in combination with the concat method to “flatten” an 
 array of arrays into a single array that has all the elements of the original arrays.
@@ -16,7 +18,7 @@ return flatArr; //return the array, reduced
 // loop ////////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function loop(value, update, test, body) {
+function loop(startVal, update, test, body){
 /* Write a higher-order function loop that provides something like a for loop statement. 
 It takes a value, a test function, an update function, and a body function. Each iteration, 
 it first runs the test function on the current loop value and stops if that returns false. 
@@ -24,9 +26,9 @@ Then it calls the body function, giving it the current value. Finally, it calls 
 function to create a new value and starts from the beginning.
 
 When defining the function, you can use a regular loop to do the actual looping.*/
-  for(var value = 0; test(value); value = update(value)) {
-    body(value);
-}
+  for(var value = startVal; test(value); value = update(value)){
+    body(value); // => for(starting condition; stopping condition; updating condition){code block "body"};
+  };
 }
 
 // /////////////////////////////////////////////////////////////////////////////
@@ -52,7 +54,33 @@ The dominant direction is the direction of a majority of the characters that hav
 associated with them. The characterScript and countBy functions defined earlier in the 
 chapter are probably useful here. */
 
+//determine orientation of each character in text parameter:
+ //see scripts.js for reference to a scripts array of objs with character codes
+  //see helpers.js for reference to callback function that takes char codes & returns corresponding script>language object>char direction
+
+//create empty arrays to store ltr chars & rtl chars
+let leftRight = [];
+let rightLeft = [];
+  for(var i = 0; i < text.length; i++){
+    let script = characterScript(string.charCodeAt(i)); //script will return language object
+//if script returns empty obj, exit
+    if(script != null){
+//else, push corresponding script to new arrays
+      if(script.direction === "ltr"){
+        leftRight.push(script);
+      }else{
+        rightLeft.push(script);
+      }
+    }
+  }
+  //tally character codes inside new arrays 
+  if(leftRight.length > rightLeft.length){
+    return "ltr";
+  }else{
+    return "rtl";
+  }
 }
+
 
 // /////////////////////////////////////////////////////////////////////////////
 //  //////////////////////////////////////////////////////
