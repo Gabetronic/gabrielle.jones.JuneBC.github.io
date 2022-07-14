@@ -152,10 +152,33 @@ var powerOfTwo = function(n) {
 };
 // 9. Write a function that accepts a string a reverses it.
 var reverse = function(string) {
+//base - stop when length = 0
+if(string.length === 0){
+  return string;
+}
+//recursion - iterate/return, &
+ //extract 1st index char & return string at 0 index
+return reverse(string.substr(1)) + string[0];
 };
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+//Requires a boolean return value.
+//Requires ignoring spaces & capital letters
+string = string.toLowerCase().trim().replace(/\s+/g, "");
+
+//base - length = 1 or 0 // "454"=> "5" or "44" => "" 
+if(string.length === 1 || string.length === 0){
+  return true;
+}
+//recursion
+//do both ends = the same?
+if(string[0] !== string[string.length - 1]){
+  return false;
+}
+//match each interior letter by iterating 
+return palindrome(string.slice(1, -1));
+
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
@@ -170,6 +193,15 @@ var modulo = function(x, y) {
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
 var multiply = function(x, y) {
+  if(y === 0){
+    return 0;
+  }
+  if(y > 0){
+    return x + multiply(x, y - 1);
+  }
+  if(y < 0){
+    return -multiply(x, -y);
+  }
 };
 
 // 13. Write a function that divides two numbers without using the / operator  or
@@ -191,6 +223,7 @@ var gcd = function(x, y) {
 // compareStr('', '') // true
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+  
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
