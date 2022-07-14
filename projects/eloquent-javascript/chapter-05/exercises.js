@@ -18,7 +18,7 @@ return flatArr; //return the array, reduced
 // loop ////////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function loop(startVal, update, test, body){
+function loop(startVal, test, update, body){
 /* Write a higher-order function loop that provides something like a for loop statement. 
 It takes a value, a test function, an update function, and a body function. Each iteration, 
 it first runs the test function on the current loop value and stops if that returns false. 
