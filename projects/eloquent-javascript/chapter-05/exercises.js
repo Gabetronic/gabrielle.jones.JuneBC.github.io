@@ -39,6 +39,15 @@ function every(array, test) {
 /* Implement every as a function that takes an array and a predicate function as 
 parameters. Write two versions, one using a loop and one using the some method. */
 
+//iterate through array
+array.forEach(function(element){
+//if each element doesn't pass the test function, return false,
+  if(test(element) === false){
+    return false;
+  }
+//else, return true
+  return true;
+});
 }
 
 // /////////////////////////////////////////////////////////////////////////////
