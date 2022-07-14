@@ -71,7 +71,7 @@ chapter are probably useful here. */
 let leftRight = [];
 let rightLeft = [];
   for(var i = 0; i < text.length; i++){
-    let script = characterScript(string.charCodeAt(i)); //script will return language object
+    let script = characterScript(text.charCodeAt(i)); //script will return language object
 //if script returns empty obj, exit
     if(script != null){
 //else, push corresponding script to new arrays
