@@ -68,7 +68,7 @@ console.log(example); // prints NaN
 var maximumNumber = Infinity; // prints Infinity
 var minimumNumber = Number.NEGATIVE_INFINITY; // prints -Infinity
 
-// 11. Primitive vs. Complex Types //
+// 11. primitive vs. complex types //
 // Data types fall under the category of either primitive or complex.  Primitive types have no methods and are immutable.
 // Only objects are considered complex data types: they have methods and are able to be changed; arrays are technically viewed as objects.
 var immutable = "Hello";

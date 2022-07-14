@@ -4,9 +4,8 @@
 * in Javascript, as operations; they are represented in Javascript as special symbols called operators.  Operators interact with 
 * input (values and variables), also known as operands to calculate new output(values).  There are several subgroups of operators used in 
 * Javascript: logical, comparison, unary, assignment, ternary, and arithmetic.
-*
-*Concept explanation + a working code example + comment of what should return/print:
 */
+
 // 1. assignment operators //
 // These operators assign a value to their left operand based on the value of their right operand.
 var y = 7;

@@ -8,14 +8,14 @@
 * 4. Switch statements are a simpler way to test the value of an expression against multiple cases.
 */
 
-// 1. If statement //
+// 1. if statement //
 // If checks one condition for truth: if is true, the code between the curly braces notation will run; if it is false,  
 // the program will skip the code.
 if(3 + 3 === 6){ 
     console.log("This expression is true!"); // prints the string because the condition of 3 + 3 === 6 is true
 }
 
-// 2. Else-if statement //
+// 2. else-if statement //
 // Else if checks a condition for truth only after the previous if statement is determined to be false. It will
 // follow the same procedure as the if statement, for running or skipping the code block attached to it.
 if("2" === 2){
@@ -25,7 +25,7 @@ if("2" === 2){
     console.log("No, these two things are the same."); //prints this string because the condition of 2 === 2 is true
 }
 
-// 3. Else statement //
+// 3. else statement //
 // Else does not test a condition and runs a code block only after all other conditions have been proven false.
 if( 1 === 2){
     console.log("Yes!");
@@ -35,7 +35,7 @@ if( 1 === 2){
     console.log("Nope."); //prints this string because all previous conditions tested are false
 }
 
-// 4. Switch statement //
+// 4. switch statement //
 // Switch statements test the value of an expression against many different cases.  If a case is proven true, a subsequent
 // block of code will run, and then a break statement will stop the program from testing the next case.  If all cases
 // are proven false, a default case will run a code block, followed by a final break statement.

@@ -13,27 +13,27 @@
 * action has important effects on the way the computer reads your code; therefore, it is good practice to keep hoisting in mind 
 * while writing code by always declaring variables at the beginning of your work.
 */
-// 1. Declaration //
+// 1. declaration //
 // You should declare, or name a variable. The computer will assign this declaration to the data value of undefined. 
 var myNameIs; 
 console.log(myNameIs); // prints => undefined
 
-// 2. Assignment //
+// 2. assignment //
 // To define the variable, you should assign it to piece of code(a value or expression) or a statement.
 myNameIs = "Effia, the Beauty";
 console.log(myNameIs); // prints => Effia, the Beauty
 
-// 3. Re-assignment //
+// 3. re-assignment //
 // If you change your mind, and want to redefine a variable, you need to reassign it to its new value.
 myNameIs = "Esi";
 console.log(myNameIs); // prints => Esi
 
-// 4. Intializing //
+// 4. initializing //
 // To save time, you can name and define a variable by initializing it. 
 var myNameIs = "Maame";
 console.log(myNameIs); // prints => Maame
 
-// 5. Var keyword //
+// 5. var keyword //
 // You can re-declare & re-assign a variable declared or initialized with the var keyword.
 var myAge = 35;
 myAge = 36;
@@ -41,7 +41,7 @@ myAge = 36;
 var myAge;
 console.log(myAge); // prints => 36
 
-// 6. Let keyword //
+// 6. let keyword //
 // You can re-assign a variable declared or initialized with the let keyword, but you can't re-declare that variable.
 let year = 2022;
 year = 2023;
@@ -50,7 +50,7 @@ console.log(year); // prints 2023
 let year;
 console.log(year); // SyntaxError: Identifier 'year' has already been declared
 
-// 7. Const keyword //
+// 7. const keyword //
 // You can neither re-declare or re-assign a variable declared or initialized with the const keyword.
 const favoriteBand = "Nine Inch Nails";
 const favoriteBand; // prints SyntaxError: Identifier 'favoriteBand' has already been declared
@@ -58,7 +58,7 @@ const favoriteBand; // prints SyntaxError: Identifier 'favoriteBand' has already
 favoriteBand = "A Tribe Called Quest"; 
 console.log(favoriteBand); // prints TypeError: Assignment to constant variable.
 
-// 8. Hoisting //
+// 8. hoisting //
 // Javascript naturally moves all variable declarations to the top of the scope they were created in - it does not move initializations.
 myCar = "Nissan";
 var myCar; 
